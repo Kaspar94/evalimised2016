@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-left">
+                    <h3>Kandidaadid</h3>
+                    <p>Siia tuleb mingi tekst...</p>
+                    <p>Siia tuleb mingi tekst...</p>
+                    <p>Siia tuleb mingi tekst...</p>
+                    <p>Siia tuleb mingi tekst...</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->

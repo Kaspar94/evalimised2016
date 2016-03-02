@@ -18,16 +18,39 @@ class Sait extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+        private function getHfData(){
+            $hfData['footer_tekst'] = 'Valimised sait';
+            $hfData['page_title'] = 'eValimised 2016';
+            return $hfData;
+        }
 	public function index() {
-            $this->load->view('esileht');
+
+            $data['page_name'] = 'esileht';
+            $this->load->view('header', $this->getHfData());
+            $this->load->view('navbar', $data);
+            $this->load->view('esileht', $data);
+            $this->load->view('footer', $this->getHfData());
 	}
         public function kandidaadid() {
-            $this->load->view('kandidaadid');
+            $data['page_name'] = 'kandidaadid';
+            $this->load->view('header',$this->getHfData());
+            $this->load->view('navbar', $data);
+            $this->load->view('kandidaadid', $data);
+            $this->load->view('footer',$this->getHfData());
         }
         public function tulemused() {
+            $data['page_name'] = 'tulemused';
+            $this->load->view('header',$this->getHfData());
+            $this->load->view('navbar', $data);
             $this->load->view('tulemused');
+            $this->load->view('footer',$this->getHfData());
         }
-        public function anna_h() {
-            $this->load->view('anna_haal');
+        public function anna_haal() {
+            $data['page_name'] = 'anna_haal';
+            $this->load->view('header',$this->getHfData());
+            $this->load->view('navbar', $data);
+            $this->load->view('anna_haal',$data);
+            $this->load->view('footer',$this->getHfData());
         }
 }
