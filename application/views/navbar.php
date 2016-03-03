@@ -16,7 +16,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li <?php echo ($page_name == 'esileht'?'class="active"':'')?> >
-                <a href="<?php echo site_url('sait'); ?>">Esileht</a>
+                <a href="<?php echo site_url('sait'); ?>"><div id="glyph" class="glyphicon glyphicon-home" aria-hidden="true"></div></a>
                 </li>
                 <li <?php echo ($page_name == 'kandidaadid'?'class="active"':'')?>>
                     <a href="<?php echo site_url('sait/kandidaadid'); ?>">Kandidaadid</a>

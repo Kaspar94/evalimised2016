@@ -117,6 +117,19 @@ footer p {
     margin: 0;
     padding: 10px 0;
 }
+.btn {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.text-left{
+    padding-left: 10px;
+}
+.col-sm-12 {
+    margin-top: 20px;
+}
+#glyph{
+    margin: -2px 3px -2px 3px;
+}
 
 @media screen and (min-width:768px) {
     .title {
@@ -143,14 +156,11 @@ footer p {
 
     .navbar {
         border-radius: 0;
+        min-height: 0;
     }
 
     .navbar-header {
         display: none;
-    }
-
-    .navbar {
-        min-height: 0;
     }
 
     .navbar-default {
@@ -161,7 +171,7 @@ footer p {
     }
 
     .nav>li>a {
-        padding: 20px;
+        padding: 15px;
     }
 
     .navbar-nav>li>a {
@@ -171,7 +181,6 @@ footer p {
 
     .navbar-nav {
         display: table;
-        margin: 0 auto;
         table-layout: fixed;
         font-size: 1.25em;
     }
