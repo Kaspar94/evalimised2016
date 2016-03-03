@@ -15,7 +15,7 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 h1,
@@ -105,7 +105,7 @@ hr {
 }
 
 footer {
-    height: 60px;
+    height: 50px;
     background: #fff;
     background: rgba(255,255,255,0.9);
     position: absolute;
@@ -116,6 +116,9 @@ footer {
 footer p {
     margin: 0;
     padding: 10px 0;
+    text-transform: fullsize-kana;
+    font-size: 1.2em;
+    color: #555;
 }
 .btn {
     padding-left: 30px;
@@ -130,7 +133,14 @@ footer p {
 #glyph{
     margin: -2px 3px -2px 3px;
 }
-
+.cd-style{
+    font-size: 2em;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.cd-number{
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
 @media screen and (min-width:768px) {
     .title {
         display: inherit;

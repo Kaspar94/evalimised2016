@@ -20,7 +20,7 @@ class Sait extends CI_Controller {
 	 */
 
         private function getHfData(){
-            $hfData['footer_tekst'] = 'Valimised sait';
+            $hfData['footer_tekst'] = 'eValimised 2016';
             $hfData['page_title'] = 'eValimised 2016';
             return $hfData;
         }
