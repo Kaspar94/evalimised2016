@@ -62,28 +62,18 @@
                                 </tr> 
                             </thead> 
                             <tbody class="searchable"> 
-                                <tr> 
-                                    <th scope="row">123</th> 
-                                    <td>John Smith</td> 
-                                    <td>Üksikkandidaat</td> 
-                                    <td>Narnia</td>
-                                    <td>1337</td> 
-                                </tr> 
-                                <tr> 
-                                    <th scope="row">321</th> 
-                                    <td>Kree Tiit</td> 
-                                    <td>Paremerakond</td> 
-                                    <td>Tartu</td>
-                                    <td>688</td> 
-                                </tr> 
-                                <tr> 
-                                    <th scope="row">96</th> 
-                                    <td>Hanskan Toss</td> 
-                                    <td>Vasakerakond</td> 
-                                    <td>Pärnu</td>
-                                    <td>18</td> 
-                                </tr> 
-                            </tbody> 
+					<?
+	                           	foreach($kandidaadid as $k){
+                                        	echo "<tr>";
+                                        	echo "<th scope=\"row\">".$k->Number."</th>";
+                                        	echo "<td>".$k->Nimi."</td>";
+	                                        echo "<td>".$k->Erakond."</td>";
+        	                                echo "<td>".$k->Piirkond."</td>";
+                	                        echo "<td>".$k->Haali."</td>";
+                        	                echo "</tr>";
+                                	}
+                                	?>       
+				</tbody> 
                         </table> 
 
                     </div>

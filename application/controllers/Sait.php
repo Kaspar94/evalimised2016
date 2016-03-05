@@ -49,17 +49,21 @@ class Sait extends CI_Controller {
 		$this->load->view('footer',$this->getHfData());
         }
         public function tulemused() {
-            $data['page_name'] = 'tulemused';
-            $this->load->view('header',$this->getHfData());
-            $this->load->view('navbar', $data);
-            $this->load->view('tulemused');
-            $this->load->view('footer',$this->getHfData());
+		$this->load->model('model_kand'); // load model
+		$kandidaadid = $this->model_kand->getKandidaadid();
+		$data['kandidaadid'] = $kandidaadid;		
+
+            	$data['page_name'] = 'tulemused';
+   	        $this->load->view('header',$this->getHfData());
+            	$this->load->view('navbar', $data);
+            	$this->load->view('tulemused');
+            	$this->load->view('footer',$this->getHfData());
         }
         public function anna_haal() {
-            $data['page_name'] = 'anna_haal';
-            $this->load->view('header',$this->getHfData());
-            $this->load->view('navbar', $data);
-            $this->load->view('anna_haal',$data);
-            $this->load->view('footer',$this->getHfData());
+            	$data['page_name'] = 'anna_haal';
+            	$this->load->view('header',$this->getHfData());
+            	$this->load->view('navbar', $data);
+            	$this->load->view('anna_haal',$data);
+            	$this->load->view('footer',$this->getHfData());
         }
 }
