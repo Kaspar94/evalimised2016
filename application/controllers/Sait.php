@@ -2,7 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Sait extends CI_Controller {
-
+	
+	
 	/**
 	 * Index Page for this controller.
 	 *
@@ -18,6 +19,10 @@ class Sait extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	
+	public function __construct() {
+		parent::__construct();
+	}	
 
         private function getHfData(){
             $hfData['footer_tekst'] = 'eValimised 2016';
@@ -33,11 +38,15 @@ class Sait extends CI_Controller {
             $this->load->view('footer', $this->getHfData());
 	}
         public function kandidaadid() {
-            $data['page_name'] = 'kandidaadid';
-            $this->load->view('header',$this->getHfData());
-            $this->load->view('navbar', $data);
-            $this->load->view('kandidaadid', $data);
-            $this->load->view('footer',$this->getHfData());
+		$this->load->model('model_kand'); // load model
+		$kandidaadid = $this->model_kand->getKandidaadid();
+		$data['kandidaadid'] = $kandidaadid;		
+
+        	$data['page_name'] = 'kandidaadid';
+		$this->load->view('header',$this->getHfData());
+		$this->load->view('navbar', $data);
+		$this->load->view('kandidaadid', $data);
+		$this->load->view('footer',$this->getHfData());
         }
         public function tulemused() {
             $data['page_name'] = 'tulemused';

@@ -1,0 +1,8 @@
+[05-Mar-2016 18:56:45 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 39
+[05-Mar-2016 18:57:01 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$data' (T_VARIABLE) in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 41
+[05-Mar-2016 18:57:02 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$data' (T_VARIABLE) in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 41
+[05-Mar-2016 19:30:29 Europe/Tallinn] PHP Fatal error:  Call to a member function getKandidaadid() on null in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 42
+[05-Mar-2016 19:30:54 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
+[05-Mar-2016 19:30:55 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
+[05-Mar-2016 19:32:04 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
+[05-Mar-2016 19:32:17 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
