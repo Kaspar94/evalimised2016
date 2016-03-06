@@ -188,6 +188,10 @@ class Sait extends CI_Controller {
             show_error('Error authenticating user.');
         }
     }
+    public function logout(){        
+        $this->hybridauthlib->logoutAllProviders();
+        $this->index();
+    }
 
     public function endpoint() {
 

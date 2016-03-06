@@ -21,10 +21,7 @@ class Kasutaja extends CI_Controller {
 
         $this->load->view('kasutaja/home', $login_data);
     }
-    public function logout(){        
-        $this->hybridauthlib->logoutAllProviders();
-        $this->index();
-    }
+
     public function login($provider) {
         log_message('debug', "controllers.HAuth.login($provider) called");
 
