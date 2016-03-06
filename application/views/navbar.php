@@ -1,6 +1,6 @@
 <body>
     <div class="container" id="title">
-        <div class="title">eValimised '16</div>
+        <div class="title">eValimised 2016</div>
     </div>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
