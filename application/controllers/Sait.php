@@ -70,4 +70,11 @@ class Sait extends CI_Controller {
             	$this->load->view('anna_haal',$data);
             	$this->load->view('footer',$this->getHfData());
         }
+        public function login(){
+                $data['page_name'] = 'login';
+            	$this->load->view('header',$this->getHfData());
+            	$this->load->view('navbar', $data);
+            	$this->load->view('login',$data);
+            	$this->load->view('footer',$this->getHfData());            
+        }
 }
