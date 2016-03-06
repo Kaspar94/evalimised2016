@@ -13,6 +13,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/custom.css"); ?>" />
-        <!--<link rel="stylesheet" href="<?php echo base_url("assets/css/theme.bootstrap.css"); ?>" /> -->
 
 </head>
