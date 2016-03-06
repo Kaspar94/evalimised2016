@@ -145,7 +145,7 @@ class Sait extends CI_Controller {
 
                     $data['user_profile'] = $user_profile;
 
-                    $this->load->view('login', $data);
+                    $this->index();
                 } else { // Cannot authenticate user
                     show_error('Cannot authenticate user');
                 }
