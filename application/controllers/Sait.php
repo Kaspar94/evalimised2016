@@ -49,6 +49,7 @@ class Sait extends CI_Controller {
        $data['providers'] = $this->hybridauthlib->getProviders();
         foreach ($data['providers'] as $provider => $d) {
             if ($d['connected'] == 1) {
+                $d['user_profile'] = $this->hybridauthlib->authenticate($provider)->getUserProfile();
                 return $d;
             }
         }        
