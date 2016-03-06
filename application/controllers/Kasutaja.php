@@ -97,7 +97,7 @@ class Kasutaja extends CI_Controller {
         }
 
         log_message('debug', 'controllers.HAuth.endpoint: loading the original HybridAuth endpoint script.');
-        require_once APPPATH . '/third_party/hybridauth/index.php';
+        require_once APPPATH . 'third_party/hybridauth/index.php';
     }
 
 }
