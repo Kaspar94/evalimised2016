@@ -6,7 +6,7 @@
                 <h3>Seaded</h3>
                 <div class="col-lg-6">
                     <h4>Isikuandmed</h4>
-                    <p>Pilt
+                    <p>
                         <?php
                         if (!empty($isik['user_profile']->profileURL)) {
                             ?>
@@ -19,17 +19,9 @@
                         }
                         ?>
                     </p>
-                    <?php
-                    foreach ($isik['user_profile'] as $key => $value) :
-                        if ($value == "") {
-                            continue;
-                        }
-                        ?>
-                            <p><strong><?= ucfirst($key) ?>:</strong> <?= (filter_var($value, FILTER_VALIDATE_URL) !== false) ? '<a href="' . $value . '" target="_blank">' . $value . '</a>' : $value; ?></p>
-                    <?php endforeach; ?>
-                    <p>Eesnimi: </p>
-                    <p>Perenimi:</p>
-                    <p>e-mail: </p>
+                            <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']['FirstName']?></p>
+                            <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']['LastName']?></p>
+                            <p><strong>e-mail: </strong> <?php echo $isik['user_profile']['Email']?></p>
                                
                 </div>
                 <div class="col-lg-offset-6">
