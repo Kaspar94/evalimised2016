@@ -24,8 +24,8 @@
                     <li <?php echo ($page_name == 'tulemused' ? 'class="active"' : '') ?>>
                         <a href="<?php echo site_url('sait/tulemused'); ?>">Tulemused</a>
                     </li>
-                    <li <?php echo ($page_name == 'anna_haal' ? 'class="active"' : '') ?>>
-                        <a href="<?php echo site_url('sait/anna_haal'); ?>">Anna hääl</a>
+                    <li <?php echo ($page_name == 'haaleta' ? 'class="active"' : '') ?>>
+                        <a href="<?php echo site_url('sait/haaleta'); ?>">Anna hääl</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

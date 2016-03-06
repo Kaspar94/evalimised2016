@@ -6,12 +6,12 @@
                     <div class="login">
                     <p>
                         <a href="<?php echo site_url('sait/login/Facebook'); ?>">
-                            <input type="button" value="Logi sisse Facebooki kaudu" class="btn btn-primary login" >
+                            <button type="button" class="btn btn-primary login">Logi sisse Facebooki kaudu</button>
                         </a>
                     </p>
                     <p>
                         <a href="<?php echo site_url('sait/login/Google'); ?>">
-                        <input type="button" value="Logi sisse Google'i kontoga" class="btn btn-danger login" >
+                            <button type="button" class="btn btn-danger login">Logi sisse Google'i kontoga</button>
                         </a>
                     </p>
                     </div>
