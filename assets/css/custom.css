@@ -11,10 +11,7 @@ body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     /*background: url('../img/bg.jpg') no-repeat center center fixed;*/
     background-color: #dddddd;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
     margin-bottom: 40px;
 }
 
@@ -116,7 +113,6 @@ footer {
 footer p {
     margin: 0;
     padding: 10px 0;
-    text-transform: fullsize-kana;
     font-size: 1.2em;
     color: #555;
 }
