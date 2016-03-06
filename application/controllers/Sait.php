@@ -39,9 +39,9 @@ class Sait extends CI_Controller {
     }
     private function getLoggedAcc(){
        $data['providers'] = $this->hybridauthlib->getProviders();
-        foreach ($data['providers'] as $d) {
+        foreach ($data['providers'] as $provider => $d) {
             if ($d['connected'] == 1) {
-                return $d;
+                return $provider;
             }
         }        
     }        
