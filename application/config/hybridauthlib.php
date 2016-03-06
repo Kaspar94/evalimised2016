@@ -40,7 +40,8 @@ $config =
 			"Facebook" => array (
 				"enabled" => true,
 				"keys"    => array ( "id" => "174506769596894", "secret" => "630c0d8da1c9eb389c02f43fe6b6ce4a" ),
-                                "scope"   => "public_profile, email"
+                                "scope"   => "public_profile, email",
+                                "trustForwarded" => true
                         ),
 
 			"Twitter" => array (
