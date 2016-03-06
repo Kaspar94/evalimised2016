@@ -51,8 +51,12 @@ class Sait extends CI_Controller {
         public function tulemused() {
 		$this->load->model('model_kand'); // load model
 		$kandidaadid = $this->model_kand->getKandidaadid();
+                $erakonnad = $this->model_kand->getErakonnad();
+                $piirkonnad = $this->model_kand->getPiirkonnad();
 		$data['kandidaadid'] = $kandidaadid;		
-
+                $data['erakonnad'] = $erakonnad;
+                $data['piirkonnad'] = $piirkonnad;
+                
             	$data['page_name'] = 'tulemused';
    	        $this->load->view('header',$this->getHfData());
             	$this->load->view('navbar', $data);

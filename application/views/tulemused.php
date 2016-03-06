@@ -9,18 +9,22 @@
                     <button type="button" class="btn btn-default">Kogu riigis</button>
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali piirkond<span class="caret"></span> </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2"> 
-                            <li><a href="#">Piirkond 1</a></li> 
-                            <li><a href="#">Piirkond 2</a></li>
-                            <li><a href="#">Piirkond 3</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2">
+                            	<?php
+	                           foreach($piirkonnad as $k){
+                                       	echo "<li><a href='#'>".$k->Piirkond."</a></li> ";
+                                    }
+                                ?> 
                         </ul> 
                     </div> 
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali erakond<span class="caret"></span> </button>
                         <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3"> 
-                            <li><a href="#">Erakond 1</a></li> 
-                            <li><a href="#">Erakond 2</a></li>
-                            <li><a href="#">Üksikkandidaadid</a></li>
+                            	<?php
+	                           foreach($erakonnad as $k){
+                                       	echo "<li><a href='#'>".$k->Erakond."</a></li> ";
+                                    }
+                                ?> 
                         </ul> 
                     </div>
                 </div>
@@ -62,7 +66,7 @@
                                 </tr> 
                             </thead> 
                             <tbody class="searchable"> 
-					<?
+					<?php
 	                           	foreach($kandidaadid as $k){
                                         	echo "<tr>";
                                         	echo "<th scope=\"row\">".$k->Number."</th>";
