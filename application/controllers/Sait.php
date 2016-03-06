@@ -77,7 +77,7 @@ class Sait extends CI_Controller {
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc();
-        $data['isikuandmed'] = $this->getLoggedAccData();            
+        $data['isik'] = $this->getLoggedAccData();            
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -98,7 +98,7 @@ class Sait extends CI_Controller {
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc();
-        $data['isikuandmed'] = $this->getLoggedAccData();            
+        $data['isik'] = $this->getLoggedAccData();            
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -111,7 +111,7 @@ class Sait extends CI_Controller {
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc();
-        $data['isikuandmed'] = $this->getLoggedAccData();            
+        $data['isik'] = $this->getLoggedAccData();            
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -123,7 +123,7 @@ class Sait extends CI_Controller {
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc();
-        $data['isikuandmed'] = $this->getLoggedAccData();          
+        $data['isik'] = $this->getLoggedAccData();          
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -142,7 +142,7 @@ class Sait extends CI_Controller {
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc();
-        $data['isikuandmed'] = $this->getLoggedAccData();              
+        $data['isik'] = $this->getLoggedAccData();              
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
