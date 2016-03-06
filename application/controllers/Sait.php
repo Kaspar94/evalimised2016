@@ -50,8 +50,10 @@ class Sait extends CI_Controller {
 
         $data['page_name'] = 'esileht';
         $data['on_logitud'] = $this->isLoggedIn();
+        if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc()[0];
-        $data['isikuandmed'] = $this->getLoggedAcc()[1];
+        $data['isikuandmed'] = $this->getLoggedAcc()[1];            
+        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('esileht', $data);
@@ -65,8 +67,10 @@ class Sait extends CI_Controller {
 
         $data['page_name'] = 'kandidaadid';
         $data['on_logitud'] = $this->isLoggedIn();
+        if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc()[0];
-        $data['isikuandmed'] = $this->getLoggedAcc()[1];
+        $data['isikuandmed'] = $this->getLoggedAcc()[1];            
+        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('kandidaadid', $data);
@@ -84,8 +88,10 @@ class Sait extends CI_Controller {
 
         $data['page_name'] = 'tulemused';
         $data['on_logitud'] = $this->isLoggedIn();
+        if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc()[0];
-        $data['isikuandmed'] = $this->getLoggedAcc()[1];
+        $data['isikuandmed'] = $this->getLoggedAcc()[1];            
+        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('tulemused');
@@ -95,8 +101,10 @@ class Sait extends CI_Controller {
     public function anna_haal() {
         $data['page_name'] = 'anna_haal';
         $data['on_logitud'] = $this->isLoggedIn();
+        if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc()[0];
-        $data['isikuandmed'] = $this->getLoggedAcc()[1];
+        $data['isikuandmed'] = $this->getLoggedAcc()[1];            
+        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('anna_haal', $data);
@@ -105,8 +113,10 @@ class Sait extends CI_Controller {
     public function kasutaja() {
         $data['page_name'] = 'kasutaja';
         $data['on_logitud'] = $this->isLoggedIn();
+        if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc()[0];
-        $data['isikuandmed'] = $this->getLoggedAcc()[1];
+        $data['isikuandmed'] = $this->getLoggedAcc()[1];            
+        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         if($this->isLoggedIn()){
@@ -122,8 +132,10 @@ class Sait extends CI_Controller {
         //$data = $this->getHfData();
         $data['page_name'] = 'login';
         $data['on_logitud'] = $this->isLoggedIn();
+        if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc()[0];
-        $data['isikuandmed'] = $this->getLoggedAcc()[1];
+        $data['isikuandmed'] = $this->getLoggedAcc()[1];            
+        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('login', $data);
