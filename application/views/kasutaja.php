@@ -19,9 +19,9 @@
                         }
                         ?>
                     </p>
-                            <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']['FirstName']?></p>
-                            <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']['LastName']?></p>
-                            <p><strong>e-mail: </strong> <?php echo $isik['user_profile']['Email']?></p>
+                            <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']->firstName?></p>
+                            <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']->lastName?></p>
+                            <p><strong>e-mail: </strong> <?php echo $isik['user_profile']->email?></p>
                                
                 </div>
                 <div class="col-lg-offset-6">
