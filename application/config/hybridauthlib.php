@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config =
 	array(
 		// set on "base_url" the relative url that point to HybridAuth Endpoint
-		'base_url' => '/kasutaja/endpoint',
+		'base_url' => '/sait/endpoint',
 
 		"providers" => array (
 			// openid providers
