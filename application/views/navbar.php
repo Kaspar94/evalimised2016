@@ -33,7 +33,7 @@
                     if ($on_logitud == false) {
                         echo "<li ".($page_name == 'login' ? 'class="active"' : '')."><a href=".site_url('sait/sisene').">Sisene</a></li>";
                     } else {
-                        echo "<li ".($page_name == 'logout' ? 'class="active"' : '')."><a href=".site_url('sait/logout').">Välju</a></li>";
+                        echo "<li ".($page_name == 'logout' ? 'class="active"' : '')."><a href=".site_url('sait/logout/'.$teenus).">Välju</a></li>";
                         echo "<li ".($page_name == 'kasutaja' ? 'class="active"' : '')."><a href=".site_url('sait/kasutaja').">Seaded</a></li>";
                     }
                     ?>
