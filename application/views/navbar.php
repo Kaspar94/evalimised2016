@@ -1,6 +1,6 @@
 <body>
     <div class="container" id="title">
-        <div class="title">eValimised 2016</div>
+        <div class="title"><h1>eValimised 2016</h1></div>
     </div>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -16,7 +16,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li <?php echo ($page_name == 'esileht' ? 'class="active"' : '') ?> >
-                        <a href="<?php echo site_url('sait'); ?>"><div id="glyph" class="glyphicon glyphicon-home" aria-hidden="true"></div></a>
+                        <a href="<?php echo site_url('sait'); ?>"><div id="glyph" class="glyphicon glyphicon-home" aria-hidden="true">Kodu</div></a>
                     </li>
                     <li <?php echo ($page_name == 'kandidaadid' ? 'class="active"' : '') ?>>
                         <a href="<?php echo site_url('sait/kandidaadid'); ?>">Kandidaadid</a>
