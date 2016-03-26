@@ -63,6 +63,7 @@ class Sait extends CI_Controller {
         $data['teenus'] = $this->getLoggedAcc();
         $data['isik'] = $this->getLoggedAccData();             
         }
+
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('esileht', $data);
@@ -152,6 +153,41 @@ class Sait extends CI_Controller {
         //$this->load->view('kasutaja/home', $data);
     }
 
+    public function haal() { // haale andmine
+	$post_data = $this->input->post('haaleta'); // id, kellele haal anti
+
+	if($this->isLoggedIn()) { // kerge turvakontroll
+	    if(preg_match('/^[0-9]+$/', $post_data)) { // kontrollime, et post inf oleks number
+	    	$userData = $this->getLoggedAccData();
+	    	$email = $userData['user_profile']->email;
+		$this->load->model('model_kand'); // load model
+		$this->model_kand->insertVote($post_data,$email);	
+	    } else {
+		echo "not_number";
+		// midagi teha
+	    }
+	} else { 
+	    header("HTTP/1.1 401 Unauthorized");
+	    exit;
+	}
+    }
+	
+    public function ajaxResponse() { // naitab kandidaati kes vastab numbrile
+	$id = $_GET['q'];
+	if(preg_match('/^[0-9]+$/', $id)) { // make sure id is number
+		$this->load->model('model_kand'); // load model
+	        $kandidaadid = $this->model_kand->getKandidaatById($id);
+		$a = str_replace("[","",json_encode($kandidaadid));
+		$b = str_replace("]","",$a);
+		echo $b;
+	}	
+    }
+
+    private function checkUser($user) { // kontrollib, kas kasutaja andmebaasis olemas. kui pole, ss lisab
+	$this->load->model('model_kand');
+	$user_exists = $this->model_kand->checkUser($user->email,$user->firstName,$user->lastName); // kontrollib, kas email eksisteerib andmebaasis. (email peaks unikaalne olema)
+    }
+
     public function login($provider) {
         log_message('debug', "controllers.HAuth.login($provider) called");
 
@@ -164,6 +200,8 @@ class Sait extends CI_Controller {
                 $service = $this->hybridauthlib->authenticate($provider);
 
                 if ($service->isUserConnected()) {
+
+
                     log_message('debug', 'controller.HAuth.login: user authenticated.');
 
                     $user_profile = $service->getUserProfile();
@@ -172,7 +210,10 @@ class Sait extends CI_Controller {
 
                     $data['user_profile'] = $user_profile;
 
+		    $this->checkUser($data['user_profile']);
+
                     $this->index();
+
                 } else { // Cannot authenticate user
                     show_error('Cannot authenticate user');
                 }

@@ -8,10 +8,14 @@
                     echo
                     '<div class="col-lg-5 text-left">
                     <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Sisesta number">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Hääleta!</button>
-                    </span>
+		    <form id="haal">
+                        <input type="text" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />
+			<span class="input-group-btn">
+			    <input class="btn btn-default" type="submit" value="Hääleta!" />
+                    	</span>
+
+		    </form>
+                    <div id="kandB"></div>
                     </div>
                     </div>';
                 }

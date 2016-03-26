@@ -20,15 +20,30 @@ class Model_kand extends CI_Model {
 		$exec = $this->db->query($query);
 		return $exec->result();           
         }
-        public function insertVote($uid, $user){
-        $valikToIsik = "UPDATE Isik SET valik = $uid WHERE id = $user";
-        $voteIncrement = "UPDATE Kandidaat SET haali = haali + 1 WHERE id = $uid";
+        public function insertVote($uid, $email){
+        	$valikToIsik = "UPDATE Isik SET valik = '$uid' WHERE email = '$email'";
+	        $voteIncrement = "UPDATE Kandidaat SET haali = haali + 1 WHERE id = '$uid'";
 
-        $this->db->query($valikToIsik);
-        $this->db->query($voteIncrement);
-
-            
-
+        	$this->db->query($valikToIsik);
+	        $this->db->query($voteIncrement);
         }
+
+
+	public function getKandidaatById($id) {
+		$query = "SELECT `Kandidaat`.`id` as Number,CONCAT(`Isik`.`eesnimi`,' ',`Isik`.`perenimi`) as Nimi,`Erakond`.`nimi` as Erakond,`Piirkond`.`nimi` as Piirkond FROM `Kandidaat` INNER JOIN `Erakond` ON `Kandidaat`.`fk_erakond` = `Erakond`.`id` INNER JOIN `Piirkond` ON `Kandidaat`.`fk_piirkond` = `Piirkond`.`id` INNER JOIN `Isik` ON `Kandidaat`.`fk_nimi` = `Isik`.`id` WHERE `Kandidaat`.`id`=$id";
+		$exec = $this->db->query($query);
+		return $exec->result();
+
+	}
+
+	public function checkUser($email,$firstName,$lastName) {
+		$query = "SELECT EXISTS(SELECT `Isik`.`id` FROM `Isik` WHERE `Isik`.`email` = '$email') as count";
+  		$exec = $this->db->query($query);
+		$row = $exec->row();
+		if($row->count < 1) {
+			$query = "INSERT INTO `Isik` (email,eesnimi,perenimi) VALUES ('$email','$firstName','$lastName')";
+			$exec = $this->db->query($query);
+		}
+	}
 }
 ?>
