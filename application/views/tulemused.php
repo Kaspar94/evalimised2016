@@ -74,7 +74,12 @@
                                         	echo "<td>".$k->Nimi."</td>";
 	                                        echo "<td>".$k->Erakond."</td>";
         	                                echo "<td>".$k->Piirkond."</td>";
-                	                        echo "<td>".$k->Haali."</td>";
+						if(array_key_exists($k->Number,$haaled)) {
+	                	                        echo "<td>".$haaled[$k->Number]."</td>";
+						} else {
+						        echo "<td>0</td>";
+
+						}
                         	                echo "</tr>";
                                 	}
                                 	?>       
