@@ -1,6 +1,6 @@
 function showKandidaat(str) {
 	var xhhtp;
-	
+	document.getElementById("spinner").innerHTML = "";
 	if(str.length == 0) { // kui vastus tyhi
 		document.getElementById("kandB").innerHTML = "";
 		return;
@@ -31,18 +31,17 @@ $(document).ready(function() {
 		var serialized = $form.serialize();
 	
 		$input.prop("disabled", true);
-
+		var spinner = document.getElementById("spinner");
+		spinner.innerHTML = "<span class=\"glyphicon glyphicon-refresh spinning\"></span>";
 		request = $.ajax({
 			url: "haal",
 			cache: false,
 			type: "post",
 			data: serialized,
 			success: function(resp) {
-				// ...do something
-				alert("success");
+				spinner.innerHTML = "Hääl kinnitatud.";
 			},
 			complete: function() {
-				//$('#loadingImage').hide();	
 			}
 		});
 		request.always(function() {

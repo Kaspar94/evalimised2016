@@ -13,7 +13,8 @@
 			<span class="input-group-btn">
 			    <input class="btn btn-default" type="submit" value="Hääleta!" />
                     	</span>
-			<span class="glyphicon glyphicon-refresh spinning"></span>
+			<div id="spinner"></div>
+
 		    </form>
                     <div id="kandB"></div>
                     </div>
