@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     }(jQuery));
     (function () {
-        $('ul').on('click','li',function () {
+        $('#list').on('click','li',function () {
 
             var rex = new RegExp($(this).text(), 'i');
             $('.searchable tr').hide();

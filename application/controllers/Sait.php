@@ -59,6 +59,13 @@ class Sait extends CI_Controller {
             }
         }        
     }
+    private function hasVoted(){
+        $this->load->model('model_kand');
+        $userData = $this->getLoggedAccData();
+	$email = $userData['user_profile']->email;
+        $vote = $this->model_kand->hasVoted($email);
+        return $vote;
+    }
 
     public function index() {
 
@@ -124,7 +131,8 @@ class Sait extends CI_Controller {
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
         $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();            
+        $data['isik'] = $this->getLoggedAccData();
+        $data['haal'] = $this->hasVoted();
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);

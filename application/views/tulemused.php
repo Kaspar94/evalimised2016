@@ -9,7 +9,7 @@
                     <button type="button" class="btn btn-default" id="koik">Kogu riigis</button>
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali piirkond<span class="caret"></span> </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2" id="piirkonnad">
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2" id="list">
                             	<?php
 	                           foreach($piirkonnad as $k){
                                        	echo "<li><a href='#'>".$k->Piirkond."</a></li> ";
@@ -19,7 +19,7 @@
                     </div> 
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali erakond<span class="caret"></span> </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3"> 
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3" id="list"> 
                             	<?php
 	                           foreach($erakonnad as $k){
                                        	echo "<li id='list'><a href='#'>".$k->Erakond."</a></li> ";

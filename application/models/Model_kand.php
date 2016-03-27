@@ -31,6 +31,11 @@ class Model_kand extends CI_Model {
 		$exec = $this->db->query($query);
 		return $exec->result();
 	}
+        public function getGivenVote($email) {
+		$query = "SELECT `Isik`.`valik` FROM `Isik` WHERE email = '$email'";
+		$exec = $this->db->query($query);
+		return $exec->result();              
+        }
 
 
 	public function getKandidaatById($id) {

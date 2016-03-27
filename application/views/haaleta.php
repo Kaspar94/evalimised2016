@@ -5,6 +5,7 @@
             <div class="col-lg-12 text-left">
                 <h3>Anna hääl</h3>
                 <?php if($on_logitud){
+                    if($haal == null){
                     echo
                     '<div class="col-lg-5 text-left">
                     <div class="input-group">
@@ -15,7 +16,14 @@
                     
                     </div>
                     <div id="kandB"></div>
-                    </div>';
+                    </div>';                        
+                    }
+                    else{
+                    '<div class="col-lg-5 text-left">
+                    <p>Oled juba hääletanud kandidaat number '.$haal.' poolt</p>
+                    <div id="kandB"></div>
+                    </div>';                          
+                    }
                 }
                 else{
                     echo '<p>Hääletamiseks logi sisse </p>';
