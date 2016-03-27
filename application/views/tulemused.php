@@ -55,6 +55,7 @@
             <div class="col-sm-12 text-left">
                 <div class="panel panel-default"> 
                     <div class="panel-heading">
+                        <div class="table-responsive">
                         <table id="tabel" class="table table-striped tablesorter">
                             <thead> 
                                 <tr>
@@ -79,7 +80,7 @@
                                 	?>       
 				</tbody> 
                         </table> 
-
+                        </div>
                     </div>
 
                 </div>

@@ -15,6 +15,7 @@
                                 </div><!-- /input-group -->
                             </div><!-- /.col-lg-6 -->
                         </div>
+                        <div class="table-responsive">
                         <table id="tabel" class="table table-filtred tablesorter">
                             <thead> 
                                 <tr>
@@ -39,7 +40,7 @@
 				?>	 
                             </tbody> 
                         </table>
-
+                        </div>
                     </div>
                     <script>
 
