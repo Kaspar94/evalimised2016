@@ -9,7 +9,10 @@ function showKandidaat(str) {
 	xhttp.onreadystatechange = function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200) {
 			var data_json = jQuery.parseJSON(xhttp.responseText);
-			document.getElementById("kandB").innerHTML = data_json.Nimi+" "+data_json.Erakond+" "+data_json.Piirkond;	
+			document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">"+data_json.Nimi+" "+data_json.Erakond+" "+data_json.Piirkond+"</button>";
+	
+		} else {
+			document.getElementById("kandB").innerHTML = "";
 		}
 	};
 	xhttp.open("GET", "ajaxResponse?q="+str,true);
@@ -19,33 +22,38 @@ function showKandidaat(str) {
 $(document).ready(function() {
 	
 	// haale sisestamine
-	var request;	
-	$("#haal").submit(function(event) {
+	var request;
+		
+	$(".input-group").on('click','#haal', function() {
 		
 		if(request) {
 			request.abort();
 		}
 	
-		var $form = $(this);
-		var $input = $form.find("input");
-		var serialized = $form.serialize();
+
+		var $input = $("#data");
+
 	
 		$input.prop("disabled", true);
+		$("#haal").prop("disabled",true);
 		var spinner = document.getElementById("spinner");
 		spinner.innerHTML = "<span class=\"glyphicon glyphicon-refresh spinning\"></span>";
 		request = $.ajax({
 			url: "haal",
 			cache: false,
 			type: "post",
-			data: serialized,
+			data: {'haaletus' : $input.val()},
 			success: function(resp) {
-				spinner.innerHTML = "Hääl kinnitatud.";
+				spinner.innerHTML = "Hääl kinnitatud." + resp;
 			},
 			complete: function() {
+			},
+			error: function(jq,status,message) {
+				spinner.innerHTML = jq + " " + status + " " + message;
 			}
 		});
 		request.always(function() {
-			$input.prop("disabled",false);
+			//$input.prop("disabled",false);
 		});
 		event.preventDefault();	
 	});

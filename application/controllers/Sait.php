@@ -164,7 +164,7 @@ class Sait extends CI_Controller {
     }
 
     public function haal() { // haale andmine
-	$post_data = $this->input->post('haaleta'); // id, kellele haal anti
+	$post_data = $this->input->post('haaletus'); // id, kellele haal anti
 
 	if($this->isLoggedIn()) { // kerge turvakontroll
 	    if(preg_match('/^[0-9]+$/', $post_data)) { // kontrollime, et post inf oleks number
@@ -173,7 +173,7 @@ class Sait extends CI_Controller {
 		$this->load->model('model_kand'); // load model
 		$this->model_kand->insertVote($post_data,$email);	
 	    } else {
-		echo "not_number";
+		echo "not_number:'".$post_data."'";
 		// midagi teha
 	    }
 	} else { 
