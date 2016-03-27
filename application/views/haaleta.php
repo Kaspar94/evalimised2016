@@ -12,8 +12,9 @@
 			<span class="input-group-btn">
                     	</span>
 			<div id="spinner"></div>
-                    <div id="kandB"></div>
+                    
                     </div>
+                    <div id="kandB"></div>
                     </div>';
                 }
                 else{
