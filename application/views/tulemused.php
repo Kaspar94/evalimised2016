@@ -6,10 +6,10 @@
                 <h3>Tulemused</h3>
                 <p>Kokku hääli: 9001</p>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Kogu riigis</button>
+                    <button type="button" class="btn btn-default" id="koik">Kogu riigis</button>
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali piirkond<span class="caret"></span> </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2">
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2" id="piirkonnad">
                             	<?php
 	                           foreach($piirkonnad as $k){
                                        	echo "<li><a href='#'>".$k->Piirkond."</a></li> ";
@@ -22,7 +22,7 @@
                         <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3"> 
                             	<?php
 	                           foreach($erakonnad as $k){
-                                       	echo "<li><a href='#'>".$k->Erakond."</a></li> ";
+                                       	echo "<li id='list'><a href='#'>".$k->Erakond."</a></li> ";
                                     }
                                 ?> 
                         </ul> 
@@ -31,26 +31,26 @@
             </div>
             <div class="col-sm-9 text-left">
                 <h3>Tulemused</h3>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                        <div class="text-left">John Smith: 1337</div>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                        <div class="text-left">Erakond 2: 664</div>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        <div class="text-left">Erakond 3: 3000</div>
-                    </div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                        <div class="text-left">Erakond 4: 4000</div>
-                    </div>
-                </div>
+                    <?php
+                        $i = true;
+	                foreach($erakonnad as $k){ 
+                            if($i){
+                                $i = false;
+                                $color = 'success';
+                            }
+                            else{
+                                $i = true;
+                                $color = 'warning';
+                            }
+                                ?>
+                                <div class="progress">
+                                    <div class="progress-bar <?php echo 'progress-bar-'.$color.'" id="'.$k->Erakond?>" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                        <div class="text-left"><?php echo $k->Erakond; ?></div>
+                                    </div>
+                                </div>
+                            <?php
+                        }
+                    ?> 
             </div>
             <div class="col-sm-12 text-left">
                 <div class="panel panel-default"> 

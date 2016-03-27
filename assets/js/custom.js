@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 var date = "2016/05/05";
-
+function sortTulemused(str){
+    
+}
 // http://hilios.github.io/jQuery.countdown/examples/legacy-style.html
 $(document).ready(function () {
     $("#countdown").countdown(date, function (event) {
@@ -18,7 +20,6 @@ $(document).ready(function () {
     $('#tabel').tablesorter();
 
     (function ($) {
-
         $('#otsing').keyup(function () {
 
             var rex = new RegExp($(this).val(), 'i');
@@ -27,7 +28,28 @@ $(document).ready(function () {
                 return rex.test($(this).text());
             }).show();
 
-        })
+        });
+
+    }(jQuery));
+    (function () {
+        $('ul').on('click','li',function () {
+
+            var rex = new RegExp($(this).text(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        });
+
+    }(jQuery));
+    (function () {
+        $('#koik').click(function () {
+
+            var rex = new RegExp($, 'i');
+            $('.searchable tr').show();
+
+        });
 
     }(jQuery));
 
