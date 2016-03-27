@@ -19,6 +19,7 @@
                     </div>';                        
                     }
                     else{
+                        echo
                     '<div class="col-lg-5 text-center">
                     <p>Oled juba hääletanud kandidaat number '.$haal[0]->Valik.' poolt</p>
                     </div>';                          
