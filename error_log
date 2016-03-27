@@ -6,3 +6,25 @@
 [05-Mar-2016 19:30:55 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
 [05-Mar-2016 19:32:04 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
 [05-Mar-2016 19:32:17 Europe/Tallinn] PHP Fatal error:  Call to a member function query() on null in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 10
+[16-Mar-2016 14:48:54 Europe/Tallinn] PHP Fatal error:  Function name must be a string in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 66
+[16-Mar-2016 15:53:47 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '}', expecting variable (T_VARIABLE) or '$' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 163
+[16-Mar-2016 15:53:50 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '}', expecting variable (T_VARIABLE) or '$' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 163
+[16-Mar-2016 15:54:00 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 27
+[21-Mar-2016 00:16:53 Europe/Tallinn] PHP Fatal error:  Cannot use object of type Hybrid_User_Profile as array in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 164
+[25-Mar-2016 15:31:09 Europe/Tallinn] PHP Fatal error:  Call to undefined method Sait::load_model() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 191
+[25-Mar-2016 15:31:49 Europe/Tallinn] PHP Fatal error:  Cannot use object of type Hybrid_User_Profile as array in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 192
+[25-Mar-2016 15:32:37 Europe/Tallinn] PHP Fatal error:  Cannot use object of type Hybrid_User_Profile as array in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 192
+[25-Mar-2016 16:22:20 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '}' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 46
+[25-Mar-2016 16:28:41 Europe/Tallinn] PHP Fatal error:  Call to undefined method stdClass::count() in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 48
+[25-Mar-2016 16:29:39 Europe/Tallinn] PHP Fatal error:  Call to undefined method stdClass::count() in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 48
+[25-Mar-2016 16:30:12 Europe/Tallinn] PHP Fatal error:  Cannot use object of type stdClass as array in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 48
+[25-Mar-2016 16:42:05 Europe/Tallinn] PHP Fatal error:  Call to a member function result() on boolean in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 47
+[25-Mar-2016 16:47:28 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:30 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:30 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:30 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:31 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:31 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:32 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[25-Mar-2016 16:47:32 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
+[27-Mar-2016 19:17:49 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 27

@@ -22,6 +22,11 @@ class Sait extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('HybridAuthLib');
+	//echo current_url() == "http://valimised16.cs.ut.ee/index.php/sait;
+	$disabled = ["sisene","login","endpoint","logout"]; // urlid, mida ei salvestata
+	if(!in_array($this->router->fetch_method(),$disabled)) {
+	    $this->session->set_userdata('last_page', $this->router->fetch_method()); // salvestab kylastatud lehe
+	}
     }
 
     private function getHfData() {
@@ -139,7 +144,6 @@ class Sait extends CI_Controller {
     }
 
     public function sisene() {
-        //$data = $this->getHfData();
         $data['page_name'] = 'login';
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
@@ -186,7 +190,9 @@ class Sait extends CI_Controller {
     private function checkUser($user) { // kontrollib, kas kasutaja andmebaasis olemas. kui pole, ss lisab
 	$this->load->model('model_kand');
 	$user_exists = $this->model_kand->checkUser($user->email,$user->firstName,$user->lastName); // kontrollib, kas email eksisteerib andmebaasis. (email peaks unikaalne olema)
+	return $user_exists;
     }
+
 
     public function login($provider) {
         log_message('debug', "controllers.HAuth.login($provider) called");
@@ -209,10 +215,20 @@ class Sait extends CI_Controller {
                     log_message('info', 'controllers.HAuth.login: user profile:' . PHP_EOL . print_r($user_profile, TRUE));
 
                     $data['user_profile'] = $user_profile;
+		    
+		    $ret = $this->checkUser($data['user_profile']);
+		    if($ret == 1) {  // kasutaja eksisteerib
+	                //$this->index();
+		    }
+		    if($this->session->userdata('last_page')) {
+	   	        $this->load->helper('url');
+			$last = $this->session->userdata('last_page');
+	   	        redirect("sait/$last",'refresh');
+		    } else {
+			$this->index();
+		    }
 
-		    $this->checkUser($data['user_profile']);
 
-                    $this->index();
 
                 } else { // Cannot authenticate user
                     show_error('Cannot authenticate user');
