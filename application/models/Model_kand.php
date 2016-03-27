@@ -32,7 +32,7 @@ class Model_kand extends CI_Model {
 		return $exec->result();
 	}
         public function getGivenVote($email) {
-		$query = "SELECT `Isik`.`valik` FROM `Isik` WHERE email = '$email'";
+		$query = "SELECT `Isik`.`valik` as Valik FROM `Isik` WHERE email = '$email'";
 		$exec = $this->db->query($query);
 		return $exec->result();              
         }
