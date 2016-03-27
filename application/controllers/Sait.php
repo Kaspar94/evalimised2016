@@ -63,7 +63,7 @@ class Sait extends CI_Controller {
         $this->load->model('model_kand');
         $userData = $this->getLoggedAccData();
 	$email = $userData['user_profile']->email;
-        $vote = $this->model_kand->hasVoted($email);
+        $vote = $this->model_kand->getGivenVote($email);
         return $vote;
     }
 
