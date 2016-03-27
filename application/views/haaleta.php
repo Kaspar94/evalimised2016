@@ -20,7 +20,7 @@
                     }
                     else{
                     '<div class="col-lg-5 text-left">
-                    <p>Oled juba hääletanud kandidaat number '.$haal.' poolt</p>
+                    <p>Oled juba hääletanud kandidaat number '.$haal[0]->Valik.' poolt</p>
                     <div id="kandB"></div>
                     </div>';                          
                     }
