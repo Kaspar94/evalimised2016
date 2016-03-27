@@ -5,7 +5,7 @@
             <div class="col-lg-12 text-left">
                 <h3>Anna hääl</h3>
                 <?php if($on_logitud){
-                    if($haal->Valik == null){
+                    if($haal[0]->Valik == null){
                     echo
                     '<div class="col-lg-5 text-left">
                     <div class="input-group">
