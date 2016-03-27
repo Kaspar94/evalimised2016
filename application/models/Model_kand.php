@@ -41,9 +41,11 @@ class Model_kand extends CI_Model {
   		$exec = $this->db->query($query);
 		$row = $exec->row();
 		if($row->count < 1) {
-			$query = "INSERT INTO `Isik` (email,eesnimi,perenimi) VALUES ('$email','$firstName','$lastName')";
+			$query = "INSERT INTO `Isik` (email,eesnimi,perenimi,piirkond) VALUES ('$email','$firstName','$lastName','1')";
 			$exec = $this->db->query($query);
+			return 0;
 		}
+		return 1;
 	}
 }
 ?>
