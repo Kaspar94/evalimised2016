@@ -45,9 +45,9 @@ $(document).ready(
         });
 
     }(jQuery));
-    (function(){
+    $(function(){
         createErakondChart("");
-    });
+    }(jQuery));
     (function () {
         $('#piirkonnad').on('click','li',function () {
             var rex = new RegExp($(this).text(), 'i');
