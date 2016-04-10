@@ -164,6 +164,10 @@ class Sait extends CI_Controller {
         $this->load->view('navbar', $data);
         if($this->isLoggedIn()){
             $this->load->model('model_kand');
+            $erakonnad = $this->model_kand->getErakonnad();
+            $piirkonnad = $this->model_kand->getPiirkonnad();
+            $data['erakonnad'] = $erakonnad;
+            $data['piirkonnad'] = $piirkonnad;
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
