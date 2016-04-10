@@ -167,14 +167,22 @@ class Sait extends CI_Controller {
     public function kandideeri() {
         $data['page_name'] = 'kandideeri';
         $data['on_logitud'] = $this->isLoggedIn();
+            $this->load->model('model_kand');
+            $erakonnad = $this->model_kand->getErakonnad();
+            $erakonnad_n = array();
+            foreach($erakonnad as $ek){
+                $erakonnad_n[] = $ek->Erakond;
+            }
+            $piirkonnad = $this->model_kand->getPiirkonnad();
+            $piirkonnad_n = array();
+            foreach($piirkonnad as $ek){
+                $piirkonnad_n[] = $ek->Piirkond;
+            }
+            $data['erakonnad'] = $erakonnad_n;
+            $data['piirkonnad'] = $piirkonnad_n;
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         if ($this->isLoggedIn()) {
-            $this->load->model('model_kand');
-            $erakonnad = $this->model_kand->getErakonnad();
-            $piirkonnad = $this->model_kand->getPiirkonnad();
-            $data['erakonnad'] = $erakonnad;
-            $data['piirkonnad'] = $piirkonnad;
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
@@ -182,15 +190,11 @@ class Sait extends CI_Controller {
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
-            $this->postKandideeri();
         if ($this->form_validation->run() == FALSE) {
             //fail validation
             $this->load->view('kandideeri', $data);
         } else {
             //pass validation
-            $this->load->model('model_kand');
-            $erakonnad = $this->model_kand->getErakonnad();
-            $piirkonnad = $this->model_kand->getPiirkonnad();
             $erakond = "";
             $piirkond = "";
             foreach($piirkonnad as $pk){
