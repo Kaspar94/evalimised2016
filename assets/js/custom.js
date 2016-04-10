@@ -88,11 +88,11 @@ function createErakondChart($name){
     for (var i = 0; i < arrayLength; i++) {
         if(rows[i][3] === $name || $name === ""){
             newRows[j++] = rows[i];
-            total_votes += rows[i][4];
+            total_votes += parseInt(rows[i][4],10);
             if (rows[i][2] in votes) {
-                votes[rows[i][2]] += rows[i][4];
+                votes[rows[i][2]] += parseInt(rows[i][4],10);
             } else {
-                votes[rows[i][2]] = rows[i][4];
+                votes[rows[i][2]] = parseInt(rows[i][4],10);
             }
         }
     }
@@ -131,11 +131,11 @@ function createLiigeChart($name){
     for (var i = 0; i < arrayLength; i++) {
         if(rows[i][2] === $name || $name === ""){
             newRows[j++] = rows[i];
-            total_votes += rows[i][4];
+            total_votes += parseInt(rows[i][4],10);
             if (rows[i][1] in votes) {
-                votes[rows[i][1]] += rows[i][4];
+                votes[rows[i][1]] += parseInt(rows[i][4],10);
             } else {
-                votes[rows[i][1]] = rows[i][4];
+                votes[rows[i][1]] = parseInt(rows[i][4],10);
             }
         }
     }
