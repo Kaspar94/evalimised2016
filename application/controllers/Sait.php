@@ -186,7 +186,12 @@ class Sait extends CI_Controller {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
-            $data['kandideerib'] = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
+            if(getKandidaatById($this->model_kand->getUID($email)[0]->Id)->Id == $this->model_kand->getUID($email)[0]->Id){
+                $data['kandideerib'] = true;  
+            }         
+            else{
+                $data['kandideerib'] = false;
+            }              
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
