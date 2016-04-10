@@ -164,13 +164,6 @@ class Sait extends CI_Controller {
         $this->load->view('footer', $this->getHfData());
     }
 
-    function kandideeriForm() {
-        $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
-        $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
-        $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
-        postKandideeri();
-    }
-
     public function kandideeri() {
         $data['page_name'] = 'kandideeri';
         $data['on_logitud'] = $this->isLoggedIn();
@@ -186,7 +179,10 @@ class Sait extends CI_Controller {
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
             $data['kandideerib'] = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
-            kandideeriForm();
+            $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
+            $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
+            $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
+            $this->postKandideeri();
             $this->load->view('kandideeri', $data);
         } else {
             $this->load->view('login', $data);
