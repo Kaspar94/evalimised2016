@@ -186,7 +186,7 @@ class Sait extends CI_Controller {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
-            if($this->getKandidaatById($this->model_kand->getUID($email)[0]->Id)->Id == $this->model_kand->getUID($email)[0]->Id){
+            if($this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id)->Id == $this->model_kand->getUID($email)[0]->Id){
                 $data['kandideerib'] = true;  
             }         
             else{
