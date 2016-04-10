@@ -27,6 +27,13 @@
                     <li <?php echo ($page_name == 'haaleta' ? 'class="active"' : '') ?>>
                         <a href="<?php echo site_url('sait/haaleta'); ?>">Anna hääl</a>
                     </li>
+                    <?php
+                    if($on_logitud == true){
+                       echo "<li ".$page_name == 'kandideeri' ? 'class="active"' : ''.">
+                        <a href=".site_url('sait/kandideeri').">Kandideeri</a>
+                        </li>";                     
+                    }
+                    ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php
