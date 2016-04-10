@@ -183,13 +183,9 @@ class Sait extends CI_Controller {
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
             $this->postKandideeri();
-            $this->load->view('kandideeri', $data);
-        } else {
-            $this->load->view('login', $data);
-        }
         if ($this->form_validation->run() == FALSE) {
             //fail validation
-            $this->index();
+            $this->load->view('kandideeri', $data);
         } else {
             //pass validation
             $this->load->model('model_kand');
@@ -222,6 +218,11 @@ class Sait extends CI_Controller {
             $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Kandideerimine õnnestus!</div>');
             redirect('sait/kandideeri');
         }
+            
+        } else {
+            $this->load->view('login', $data);
+        }
+
         $this->load->view('footer', $this->getHfData());
     }
 
