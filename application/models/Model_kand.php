@@ -56,7 +56,7 @@ class Model_kand extends CI_Model {
 		$exec = $this->db->query($query);
 		return $exec->result();
 	}
-
+        
 	public function checkUser($email,$firstName,$lastName) {
 		$query = "SELECT EXISTS(SELECT `Isik`.`id` FROM `Isik` WHERE `Isik`.`email` = '$email') as count";
   		$exec = $this->db->query($query);
