@@ -28,9 +28,7 @@ class Model_kand extends CI_Model {
         public function getUID($email){
             $query = "SELECT `Isik`.`id` as Id FROM `Isik` WHERE email = '$email'";
             $exec = $this->db->query($query);
-            foreach ($exec->result() as $row) {
-                return $row;
-            }
+            return $exec->result();
         }
 
 	public function getVotes() {
