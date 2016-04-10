@@ -6,7 +6,6 @@
                 <h3>Kandideeri</h3>
                 <?php
                 if ($on_logitud) {
-                    $kandideerib = array_filter($kandideerib);
                     if (empty($kandideerib)) {
                         ?>
                         <div class="col-lg-5 text-left">
