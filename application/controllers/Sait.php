@@ -218,7 +218,7 @@ class Sait extends CI_Controller {
     function postKandideeri() {
         if ($this->form_validation->run() == FALSE) {
             //fail validation
-            kandideeri();
+            $this->kandideeri();
         } else {
             //pass validation
             $this->load->model('model_kand');
