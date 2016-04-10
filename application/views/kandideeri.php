@@ -72,7 +72,7 @@
 
                         </div>                        
                     <?php
-                    } else {
+                    } else if($kandideerib != null){
                         echo
                         '<div class="col-lg-5 text-center">
                     <p>Oled juba kandidaatide nimekirjas</p>
