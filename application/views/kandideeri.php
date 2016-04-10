@@ -14,9 +14,6 @@
                             echo form_open("sait/kandideeri", $attributes);
                             ?>
                             <fieldset>
-
-                                <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']->firstName ?></p>
-                                <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']->lastName ?></p>
                                 <div class="form-group">
                                     <div class="row colbox">
                                         <div class="col-lg-4 col-sm-4">
