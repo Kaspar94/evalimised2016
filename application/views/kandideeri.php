@@ -16,7 +16,7 @@
                             <option value="">Vali...</option>
                             <?php
 	                        foreach($piirkonnad as $k){
-                                    echo "<opton value=".$k->Piirkond."'>".$k->Piirkond."</option>";
+                                    echo "<option value=".$k->Piirkond."'>".$k->Piirkond."</option>";
                                 }
                             ?>                   
                         </select>
@@ -25,7 +25,7 @@
                             <option value="">Vali...</option>
                             <?php
 	                        foreach($piirkonnad as $k){
-                                    echo "<opton value=".$k->Erakond."'>".$k->Erakond."</option>";
+                                    echo "<option value=".$k->Erakond."'>".$k->Erakond."</option>";
                                 }
                             ?>                   
                         </select>

@@ -231,7 +231,9 @@ class Sait extends CI_Controller {
 	$user_exists = $this->model_kand->checkUser($user->email,$user->firstName,$user->lastName); // kontrollib, kas email eksisteerib andmebaasis. (email peaks unikaalne olema)
 	return $user_exists;
     }
-
+    public function pollResponse() {
+        echo rand(1,20);
+    }
 
     public function login($provider) {
         log_message('debug', "controllers.HAuth.login($provider) called");
