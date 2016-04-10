@@ -26,7 +26,7 @@
 
                                             <?php
                                             $attributes = 'class = "form-control" id = "piirkond"';
-                                            echo form_dropdown('piirkond', $piirkonnad->Piirkond, set_value('piirkonnad'), $attributes);
+                                            echo form_dropdown('piirkond', $piirkonnad, set_value('piirkonnad'), $attributes);
                                             ?>
                                             <span class="text-danger"><?php echo form_error('Piirkond'); ?></span>
                                         </div>
@@ -42,7 +42,7 @@
 
         <?php
         $attributes = 'class = "form-control" id = "erakond"';
-        echo form_dropdown('erakond', $erakonnad->Erakond, set_value('erakonnad'), $attributes);
+        echo form_dropdown('erakond', $erakonnad, set_value('erakonnad'), $attributes);
         ?>
 
                                             <span class="text-danger"><?php echo form_error('Erakond'); ?></span>
