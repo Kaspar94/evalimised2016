@@ -100,8 +100,7 @@ function createErakondChart($name){
     var v = 30;
     if($name === "")
         $name = "kogu riik";
-    document.getElementById("chart").innerHTML = "<h3>Tulemused</h3>"+
-            "<p>Valitud piirkond: "+$name+"<p>Kokku hääli: "+total_votes+"</p>";
+    document.getElementById("chart").innerHTML = "<p>Valitud piirkond: "+$name+"<p>Kokku hääli: "+total_votes+"</p>";
     for (var key in votes) {
         if (votes.hasOwnProperty(key)) {
             //votes[key] = v;
@@ -143,8 +142,7 @@ function createLiigeChart($name){
     var v = 30;
     if($name === "")
         $name = "kogu riik";
-    document.getElementById("chart").innerHTML = "<h3>Tulemused</h3>"+
-            "<p>Valitud erakond: "+$name+"<p>Kokku hääli: "+total_votes+"</p>";
+    document.getElementById("chart").innerHTML ="<p>Valitud erakond: "+$name+"<p>Kokku hääli: "+total_votes+"</p>";
     for (var key in votes) {
         if (votes.hasOwnProperty(key)) {
             //votes[key] = v;
