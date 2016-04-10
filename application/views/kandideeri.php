@@ -6,16 +6,36 @@
                 <h3>Kandideeri</h3>
                 <?php if($on_logitud){
                     if($kandideerib == null){
-                    echo
-                    '<div class="col-lg-5 text-center">
+                    ?>
+                    <div class="col-lg-5 text-center">
                     <div class="input-group">
+                        <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']->firstName?></p>
+                        <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']->lastName?></p>
+                        <p><strong>Piirkond:</strong>
+                        <select name="formPiirkond" class="btn btn-default dropdown-toggle">
+                            <option value="">Vali...</option>
+                            <?php
+	                        foreach($piirkonnad as $k){
+                                    echo "<opton value=".$k->Piirkond."'>".$k->Piirkond."</option>";
+                                }
+                            ?>                   
+                        </select>
+                        <p><strong>Erakond:</strong>
+                        <select name="formErakond" class="btn btn-default dropdown-toggle">
+                            <option value="">Vali...</option>
+                            <?php
+	                        foreach($piirkonnad as $k){
+                                    echo "<opton value=".$k->Erakond."'>".$k->Erakond."</option>";
+                                }
+                            ?>                   
+                        </select>
+                    </p>
                         <input type="text" id="data" name="kandideeri" class="form-control" placeholder="Sisesta loosung" />
 			<span class="input-group-btn">
                     	</span>
-                    </div>
-                    
-                    </div>';                        
-                    }
+                    </div>                    
+                    </div>                        
+              <?php }
                     else{
                         echo
                     '<div class="col-lg-5 text-center">
