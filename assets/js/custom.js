@@ -30,8 +30,8 @@ $(document).ready(
                     return this.innerHTML;
                 }).get()];
         }).get();
-
-
+        
+        createErakondChart("");
     });
     (function ($) {
         $('#otsing').keyup(function () {
@@ -44,9 +44,6 @@ $(document).ready(
 
         });
 
-    }(jQuery));
-    (function(){
-        createErakondChart("");
     }(jQuery));
     (function () {
         $('#piirkonnad').on('click','li',function () {
