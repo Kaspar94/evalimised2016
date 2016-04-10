@@ -30,8 +30,8 @@ $(document).ready(
                     return this.innerHTML;
                 }).get()];
         }).get();
-        
-        createErakondChart("");
+        if(document.getElementById("#chart") !== null)
+            createErakondChart("");
     });
     (function ($) {
         $('#otsing').keyup(function () {

@@ -133,9 +133,9 @@ class Sait extends CI_Controller {
         $data['page_name'] = 'haaleta';
         $data['on_logitud'] = $this->isLoggedIn();
         if($this->isLoggedIn()){
-        $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();
-        $data['haal'] = $this->hasVoted();
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
+            $data['haal'] = $this->hasVoted();
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -145,13 +145,11 @@ class Sait extends CI_Controller {
     public function kasutaja() {
         $data['page_name'] = 'kasutaja';
         $data['on_logitud'] = $this->isLoggedIn();
-        if($this->isLoggedIn()){
-        $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();          
-        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         if($this->isLoggedIn()){
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();   
             $this->load->view('kasutaja', $data);
         }
         else{
@@ -159,17 +157,37 @@ class Sait extends CI_Controller {
         }        
         $this->load->view('footer', $this->getHfData());        
     }
-
+    public function kandideeri() {
+        $data['page_name'] = 'kandideeri';
+        $data['on_logitud'] = $this->isLoggedIn();
+        $this->load->view('header', $this->getHfData());
+        $this->load->view('navbar', $data);
+        if($this->isLoggedIn()){
+            $this->load->model('model_kand');
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
+            $email = $this->getLoggedAccData()->email;
+            $data['kandideerib'] = $this->model_kand->getKandidaatById($email);
+            $this->load->view('kandideeri', $data);
+        }
+        else{
+            $this->load->view('login', $data);
+        }        
+        $this->load->view('footer', $this->getHfData());        
+    }
     public function sisene() {
         $data['page_name'] = 'login';
         $data['on_logitud'] = $this->isLoggedIn();
-        if($this->isLoggedIn()){
-        $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();              
-        }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
-        $this->load->view('login', $data);
+        if($this->isLoggedIn()){
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
+            $this->load->view('kasutaja', $data);
+        }
+        else{
+            $this->load->view('login', $data);  
+        }     
         $this->load->view('footer', $this->getHfData());
         //$this->load->view('kasutaja/home', $data);
     }
