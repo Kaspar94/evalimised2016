@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-sm-9 text-left" id="chart">
-                <h3>Tulemused</h3>
+                <!--<h3>Tulemused</h3>-->
 
             </div>
             <div class="col-sm-12 text-left">
