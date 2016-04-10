@@ -7,7 +7,7 @@
                 <?php
                 if ($on_logitud) {
                     $kandideerib = array_filter($kandideerib);
-                    if (!empty($kandideerib)) {
+                    if (empty($kandideerib)) {
                         ?>
                         <div class="col-lg-5 text-left">
                             <?php
