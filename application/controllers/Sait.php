@@ -164,7 +164,7 @@ class Sait extends CI_Controller {
         $this->load->view('footer', $this->getHfData());
     }
 
-    private function kandideeriForm() {
+    function kandideeriForm() {
         $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
         $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
         $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
@@ -210,7 +210,7 @@ class Sait extends CI_Controller {
         //$this->load->view('kasutaja/home', $data);
     }
 
-    private function combo_check($str) {
+    function combo_check($str) {
         if ($str == 'Vali..') {
             $this->form_validation->set_message('combo_check', '%s on valimata!');
             return FALSE;
@@ -219,7 +219,7 @@ class Sait extends CI_Controller {
         }
     }
 
-    private function postKandideeri() {
+    function postKandideeri() {
         if ($this->form_validation->run() == FALSE) {
             //fail validation
             kandideeri();
