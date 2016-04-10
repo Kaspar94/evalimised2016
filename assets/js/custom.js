@@ -45,7 +45,7 @@ $(document).ready(
         });
 
     }(jQuery));
-    $(function(){
+    (function(){
         createErakondChart("");
     }(jQuery));
     (function () {
