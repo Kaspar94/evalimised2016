@@ -195,15 +195,15 @@ class Sait extends CI_Controller {
             $this->load->view('kandideeri', $data);
         } else {
             //pass validation
-            $erakond = "";
-            $piirkond = "";
+            $erakond = $this->input->post('erakond');
+            $piirkond = $this->input->post('piirkond');
             foreach($piirkonnad as $pk){
-                if($pk->Piirkond == $this->input->post('piirkond')){
+                if($pk->Piirkond == $piirkond){
                     $piirkond = $pk->Id;
                 }
             }
             foreach($erakonnad as $pk){
-                if($pk->Erakond == $this->input->post('erakond')){
+                if($pk->Erakond == $erakond){
                     $erakond = $pk->Id;
                 }
             }
