@@ -6,7 +6,8 @@
                 <h3>Kandideeri</h3>
                 <?php
                 if ($on_logitud) {
-                    if ($kandideerib == null) {
+                    $kandideerib = array_filter($kandideerib);
+                    if (!empty($kandideerib)) {
                         ?>
                         <div class="col-lg-5 text-left">
                             <?php
@@ -72,7 +73,7 @@
 
                         </div>                        
                     <?php
-                    } else if($kandideerib != null){
+                    } else{
                         echo
                         '<div class="col-lg-5 text-center">
                     <p>Oled juba kandidaatide nimekirjas</p>
