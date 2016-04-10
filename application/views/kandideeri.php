@@ -6,7 +6,7 @@
                 <h3>Kandideeri</h3>
                 <?php
                 if ($on_logitud) {
-                    if (!$kandideerib) {
+                    if ($kandideerib == false) {
                         ?>
                         <div class="col-lg-5 text-left">
                             <?php
