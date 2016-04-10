@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://valimised16.cs.ut.ee/';
-$config['base_url'] = 'http://localhost/evalimised2016/';
+//$config['base_url'] = 'http://localhost/evalimised2016/';
 
 /*
 |--------------------------------------------------------------------------
