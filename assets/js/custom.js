@@ -8,6 +8,7 @@ var date = "2016/05/05";
 var headers = Array();
 var rows = Array();
 $(document).ready(function () {
+    
     $("#countdown").countdown(date, function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
@@ -74,7 +75,7 @@ $(document).ready(function () {
             createErakondChart("");
         });
     }(jQuery));   
-
+    document.createErakondChart("");
 });
 function createErakondChart($name){
     var newHeaders = Array();
