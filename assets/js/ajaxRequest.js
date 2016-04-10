@@ -19,8 +19,37 @@ function showKandidaat(str) {
 	xhttp.send();
 }
 
+function pollKandidaat() {
+	var box = document.getElementById("ajutine");
+	
+	$.ajax({
+		type: "GET",
+		url: "http://valimised16.cs.ut.ee/index.php/sait/pollResponse",
+		async: true,
+		cache: false,
+		timeout:50000,
+		
+		success: function(data) {
+			box.innerHTML = data;
+			setTimeout(pollKandidaat,5000);
+		},
+		error: function(textStatus, errorThrown) {
+			//alert(textStatus + " " + errorThrown);
+			box.innerHTML = textStatus + " " + errorThrown;
+			setTimeout(pollKandidaat,15000);
+		}
+	});
+}
+
+
+
+
 $(document).ready(function() {
 	
+	// long polling
+	pollKandidaat();
+
+
 	// haale sisestamine
 	var request;
 		

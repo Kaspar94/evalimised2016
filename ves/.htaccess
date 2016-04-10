@@ -1,0 +1,10 @@
+#RewriteEngine on
+#RewriteBase .
+#<Directory "/www/ves">
+SSLVerifyClient require
+SSLVerifyDepth 10
+SSLOptions +StdEnvVars +ExportCertData
+#SSLCACertificateFile ca-certs.pem
+#SSLUseStapling on
+#</Directory>
+

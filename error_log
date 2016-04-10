@@ -28,3 +28,5 @@
 [25-Mar-2016 16:47:32 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
 [25-Mar-2016 16:47:32 Europe/Tallinn] PHP Parse error:  syntax error, unexpected '$valikToIsik' (T_VARIABLE), expecting ',' or ';' in /webpages/valimised16csut/public_html/application/models/Model_kand.php on line 25
 [27-Mar-2016 19:17:49 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 27
+[27-Mar-2016 23:30:58 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::hasVoted() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 66
+[27-Mar-2016 23:32:06 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::hasVoted() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 66

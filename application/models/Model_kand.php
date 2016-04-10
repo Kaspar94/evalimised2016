@@ -25,6 +25,14 @@ class Model_kand extends CI_Model {
 
         	$this->db->query($valikToIsik); 
         }
+
+	public function insertKandidaat($loosung) {
+
+		$query = "INSERT INTO `Kandidaat` (`fk_nimi`,`fk_erakond`,`fk_piirkond`,`loosung`,`haali`)
+				VALUES ('$nimi','$erakond','$piirkond','$loosung','0')";
+
+	}
+
         public function getUID($email){
             $query = "SELECT `Isik`.`id` as Id FROM `Isik` WHERE email = '$email'";
             $exec = $this->db->query($query);
