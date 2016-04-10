@@ -4,48 +4,87 @@
         <div class="box">
             <div class="col-lg-12 text-left">
                 <h3>Kandideeri</h3>
-                <?php if($on_logitud){
-                    if($kandideerib == null){
-                    ?>
-                    <div class="col-lg-5 text-left">
-                    <div class="input-group">
-                        <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']->firstName?></p>
-                        <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']->lastName?></p>
-                        <p><strong>Piirkond:</strong>
-                        <select name="formPiirkond" class="btn btn-default dropdown-toggle">
-                            <option value="">Vali...</option>
+                <?php
+                if ($on_logitud) {
+                    if ($kandideerib == null) {
+                        ?>
+                        <div class="col-lg-5 text-left">
                             <?php
-	                        foreach($piirkonnad as $k){
-                                    echo "<option value=".$k->Piirkond."'>".$k->Piirkond."</option>";
-                                }
-                            ?>                   
-                        </select>
-                        <p><strong>Erakond:</strong>
-                        <select name="formErakond" class="btn btn-default dropdown-toggle">
-                            <option value="">Vali...</option>
-                            <?php
-	                        foreach($erakonnad as $k){
-                                    echo "<option value=".$k->Erakond."'>".$k->Erakond."</option>";
-                                }
-                            ?>                   
-                        </select>
-                    </p>
-                        <input type="text" id="data" name="kandideeri" class="form-control" placeholder="Sisesta loosung" />
-			<span class="input-group-btn">
-                    	</span>
-                    </div>                    
-                    </div>                        
-              <?php }
-                    else{
+                            $attributes = array("class" => "form-horizontal", "id" => "kandideeri", "name" => "kandideeri");
+                            echo form_open("sait/kandideeri", $attributes);
+                            ?>
+                            <fieldset>
+
+                                <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']->firstName ?></p>
+                                <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']->lastName ?></p>
+                                <div class="form-group">
+                                    <div class="row colbox">
+                                        <div class="col-lg-4 col-sm-4">
+                                            <label for="piirkond" class="control-label">Piirkond</label>
+                                        </div>
+                                        <div class="col-lg-8 col-sm-8">
+
+                                            <?php
+                                            $attributes = 'class = "form-control" id = "piirkond"';
+                                            echo form_dropdown('piirkond', $piirkond, set_value('piirkond'), $attributes);
+                                            ?>
+                                            <span class="text-danger"><?php echo form_error('piirkond'); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row colbox">
+                                        <div class="col-lg-4 col-sm-4">
+                                            <label for="designation" class="control-label">Erakond</label>
+                                        </div>
+                                        <div class="col-lg-8 col-sm-8">
+
+        <?php
+        $attributes = 'class = "form-control" id = "designation"';
+        echo form_dropdown('erakond', $designation, set_value('erakond'), $attributes);
+        ?>
+
+                                            <span class="text-danger"><?php echo form_error('erakond'); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row colbox">
+                                        <div class="col-lg-4 col-sm-4">
+                                            <label for="loosung" class="control-label">Loosung</label>
+                                        </div>
+                                        <div class="col-lg-8 col-sm-8">
+                                            <input id="loosung" name="loosung" placeholder="loosung" type="text" class="form-control" value="<?php echo set_value('loosung'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('loosung'); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
+                                        <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
+                                        <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-danger" value="Cancel" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        <?php echo form_close(); ?>
+                        <?php echo $this->session->flashdata('msg'); ?>
+
+
+                        </div>                        
+                    <?php
+                    } else {
                         echo
-                    '<div class="col-lg-5 text-center">
+                        '<div class="col-lg-5 text-center">
                     <p>Oled juba kandidaatide nimekirjas</p>
-                    </div>';                          
+                    </div>';
                     }
-                }
-                else{
+                } else {
                     echo '<p>Kandideerimiseks logi sisse </p>';
-                } ?>
+                }
+                ?>
 
 
             </div>

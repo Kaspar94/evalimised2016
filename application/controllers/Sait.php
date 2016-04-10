@@ -22,11 +22,13 @@ class Sait extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('HybridAuthLib');
-	//echo current_url() == "http://valimised16.cs.ut.ee/index.php/sait;
-	$disabled = ["sisene","login","endpoint","logout"]; // urlid, mida ei salvestata
-	if(!in_array($this->router->fetch_method(),$disabled)) {
-	    $this->session->set_userdata('last_page', $this->router->fetch_method()); // salvestab kylastatud lehe
-	}
+        $this->load->library('form_validation');
+        $this->load->helper('form');
+        //echo current_url() == "http://valimised16.cs.ut.ee/index.php/sait;
+        $disabled = ["sisene", "login", "endpoint", "logout"]; // urlid, mida ei salvestata
+        if (!in_array($this->router->fetch_method(), $disabled)) {
+            $this->session->set_userdata('last_page', $this->router->fetch_method()); // salvestab kylastatud lehe
+        }
     }
 
     private function getHfData() {
@@ -34,35 +36,39 @@ class Sait extends CI_Controller {
         $hfData['page_title'] = 'eValimised 2016';
         return $hfData;
     }
-    private function isLoggedIn(){
+
+    private function isLoggedIn() {
         $data['providers'] = $this->hybridauthlib->getProviders();
         foreach ($data['providers'] as $d) {
             if ($d['connected'] == 1) {
                 return true;
             }
-        }        
+        }
     }
-    private function getLoggedAcc(){
-       $data['providers'] = $this->hybridauthlib->getProviders();
+
+    private function getLoggedAcc() {
+        $data['providers'] = $this->hybridauthlib->getProviders();
         foreach ($data['providers'] as $provider => $d) {
             if ($d['connected'] == 1) {
                 return $provider;
             }
-        }        
+        }
     }
-    private function getLoggedAccData(){
-       $data['providers'] = $this->hybridauthlib->getProviders();
+
+    private function getLoggedAccData() {
+        $data['providers'] = $this->hybridauthlib->getProviders();
         foreach ($data['providers'] as $provider => $d) {
             if ($d['connected'] == 1) {
                 $d['user_profile'] = $this->hybridauthlib->authenticate($provider)->getUserProfile();
                 return $d;
             }
-        }        
+        }
     }
-    private function hasVoted(){
+
+    private function hasVoted() {
         $this->load->model('model_kand');
         $userData = $this->getLoggedAccData();
-	$email = $userData['user_profile']->email;
+        $email = $userData['user_profile']->email;
         $vote = $this->model_kand->getGivenVote($email);
         return $vote;
     }
@@ -71,9 +77,9 @@ class Sait extends CI_Controller {
 
         $data['page_name'] = 'esileht';
         $data['on_logitud'] = $this->isLoggedIn();
-        if($this->isLoggedIn()){
-        $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();             
+        if ($this->isLoggedIn()) {
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
         }
 
         $this->load->view('header', $this->getHfData());
@@ -89,9 +95,9 @@ class Sait extends CI_Controller {
 
         $data['page_name'] = 'kandidaadid';
         $data['on_logitud'] = $this->isLoggedIn();
-        if($this->isLoggedIn()){
-        $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();            
+        if ($this->isLoggedIn()) {
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -104,24 +110,24 @@ class Sait extends CI_Controller {
         $kandidaadid = $this->model_kand->getKandidaadid();
         $erakonnad = $this->model_kand->getErakonnad();
         $piirkonnad = $this->model_kand->getPiirkonnad();
-	$haaled = $this->model_kand->getVotes();
-	$votes = [];
+        $haaled = $this->model_kand->getVotes();
+        $votes = [];
         $tot_votes = 0;
-	foreach($haaled as $haal) {
-		$votes[$haal->id] = $haal->Haali;
-                $tot_votes += $haal->Haali;
-	}
+        foreach ($haaled as $haal) {
+            $votes[$haal->id] = $haal->Haali;
+            $tot_votes += $haal->Haali;
+        }
         $data['kokku_haali'] = $tot_votes;
-	$data['haaled'] = $votes;
+        $data['haaled'] = $votes;
         $data['kandidaadid'] = $kandidaadid;
         $data['erakonnad'] = $erakonnad;
         $data['piirkonnad'] = $piirkonnad;
 
         $data['page_name'] = 'tulemused';
         $data['on_logitud'] = $this->isLoggedIn();
-        if($this->isLoggedIn()){
-        $data['teenus'] = $this->getLoggedAcc();
-        $data['isik'] = $this->getLoggedAccData();            
+        if ($this->isLoggedIn()) {
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
         }
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
@@ -132,7 +138,7 @@ class Sait extends CI_Controller {
     public function haaleta() {
         $data['page_name'] = 'haaleta';
         $data['on_logitud'] = $this->isLoggedIn();
-        if($this->isLoggedIn()){
+        if ($this->isLoggedIn()) {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $data['haal'] = $this->hasVoted();
@@ -142,27 +148,35 @@ class Sait extends CI_Controller {
         $this->load->view('haaleta', $data);
         $this->load->view('footer', $this->getHfData());
     }
+
     public function kasutaja() {
         $data['page_name'] = 'kasutaja';
         $data['on_logitud'] = $this->isLoggedIn();
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
-        if($this->isLoggedIn()){
+        if ($this->isLoggedIn()) {
             $data['teenus'] = $this->getLoggedAcc();
-            $data['isik'] = $this->getLoggedAccData();   
+            $data['isik'] = $this->getLoggedAccData();
             $this->load->view('kasutaja', $data);
-        }
-        else{
+        } else {
             $this->load->view('login', $data);
-        }        
-        $this->load->view('footer', $this->getHfData());        
+        }
+        $this->load->view('footer', $this->getHfData());
     }
+
+    private function kandideeriForm() {
+        $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
+        $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
+        $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
+        postKandideeri();
+    }
+
     public function kandideeri() {
         $data['page_name'] = 'kandideeri';
         $data['on_logitud'] = $this->isLoggedIn();
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
-        if($this->isLoggedIn()){
+        if ($this->isLoggedIn()) {
             $this->load->model('model_kand');
             $erakonnad = $this->model_kand->getErakonnad();
             $piirkonnad = $this->model_kand->getPiirkonnad();
@@ -172,67 +186,115 @@ class Sait extends CI_Controller {
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
             $data['kandideerib'] = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
+            kandideeriForm();
             $this->load->view('kandideeri', $data);
-        }
-        else{
+        } else {
             $this->load->view('login', $data);
-        }        
-        $this->load->view('footer', $this->getHfData());        
+        }
+        $this->load->view('footer', $this->getHfData());
     }
+
     public function sisene() {
         $data['page_name'] = 'login';
         $data['on_logitud'] = $this->isLoggedIn();
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
-        if($this->isLoggedIn()){
+        if ($this->isLoggedIn()) {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $this->load->view('kasutaja', $data);
+        } else {
+            $this->load->view('login', $data);
         }
-        else{
-            $this->load->view('login', $data);  
-        }     
         $this->load->view('footer', $this->getHfData());
         //$this->load->view('kasutaja/home', $data);
     }
 
-    public function haal() { // haale andmine
-	$post_data = $this->input->post('haaletus'); // id, kellele haal anti
-
-	if($this->isLoggedIn()) { // kerge turvakontroll
-	    if(preg_match('/^[0-9]+$/', $post_data)) { // kontrollime, et post inf oleks number
-	    	$userData = $this->getLoggedAccData();
-	    	$email = $userData['user_profile']->email;
-		$this->load->model('model_kand'); // load model
-		$this->model_kand->insertVote($post_data,$email);	
-	    } else {
-		echo "not_number:'".$post_data."'";
-		// midagi teha
-	    }
-	} else { 
-	    header("HTTP/1.1 401 Unauthorized");
-	    exit;
-	}
+    private function combo_check($str) {
+        if ($str == 'Vali..') {
+            $this->form_validation->set_message('combo_check', '%s on valimata!');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
-	
+
+    private function postKandideeri() {
+        if ($this->form_validation->run() == FALSE) {
+            //fail validation
+            kandideeri();
+        } else {
+            //pass validation
+            $this->load->model('model_kand');
+            $erakonnad = $this->model_kand->getErakonnad();
+            $piirkonnad = $this->model_kand->getPiirkonnad();
+            $erakond = "";
+            $piirkond = "";
+            foreach($piirkonnad as $pk){
+                if($pk->Piirkond == $this->input->post('piirkond')){
+                    $piirkond = $pk->Id;
+                }
+            }
+            foreach($erakonnad as $pk){
+                if($pk->Erakond == $this->input->post('erakond')){
+                    $erakond = $pk->Id;
+                }
+            }
+            $email = $this->getLoggedAccData()['user_profile']->email;
+            $data = array(
+                'fk_nimi' => $this->model_kand->getUID($email)[0]->Id,
+                'fk_erakond' => $erakond,
+                'fk_piirkond' => $piirkond,
+                'loosung' => $this->input->post('loosung')
+            );
+
+            //insert the form data into database
+            $this->db->insert('Kandidaat', $data);
+
+            //display success message
+            $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Kandideerimine õnnestus!</div>');
+            redirect('sait/kandideeri');
+        }
+    }
+
+    public function haal() { // haale andmine
+        $post_data = $this->input->post('haaletus'); // id, kellele haal anti
+
+        if ($this->isLoggedIn()) { // kerge turvakontroll
+            if (preg_match('/^[0-9]+$/', $post_data)) { // kontrollime, et post inf oleks number
+                $userData = $this->getLoggedAccData();
+                $email = $userData['user_profile']->email;
+                $this->load->model('model_kand'); // load model
+                $this->model_kand->insertVote($post_data, $email);
+            } else {
+                echo "not_number:'" . $post_data . "'";
+                // midagi teha
+            }
+        } else {
+            header("HTTP/1.1 401 Unauthorized");
+            exit;
+        }
+    }
+
     public function ajaxResponse() { // naitab kandidaati kes vastab numbrile
-	$id = $_GET['q'];
-	if(preg_match('/^[0-9]+$/', $id)) { // make sure id is number
-		$this->load->model('model_kand'); // load model
-	        $kandidaadid = $this->model_kand->getKandidaatById($id);
-		$a = str_replace("[","",json_encode($kandidaadid));
-		$b = str_replace("]","",$a);
-		echo $b;
-	}	
+        $id = $_GET['q'];
+        if (preg_match('/^[0-9]+$/', $id)) { // make sure id is number
+            $this->load->model('model_kand'); // load model
+            $kandidaadid = $this->model_kand->getKandidaatById($id);
+            $a = str_replace("[", "", json_encode($kandidaadid));
+            $b = str_replace("]", "", $a);
+            echo $b;
+        }
     }
 
     private function checkUser($user) { // kontrollib, kas kasutaja andmebaasis olemas. kui pole, ss lisab
-	$this->load->model('model_kand');
-	$user_exists = $this->model_kand->checkUser($user->email,$user->firstName,$user->lastName); // kontrollib, kas email eksisteerib andmebaasis. (email peaks unikaalne olema)
-	return $user_exists;
+        $this->load->model('model_kand');
+        $user_exists = $this->model_kand->checkUser($user->email, $user->firstName, $user->lastName); // kontrollib, kas email eksisteerib andmebaasis. (email peaks unikaalne olema)
+        return $user_exists;
     }
+
     public function pollResponse() {
-        echo rand(1,20);
+        echo rand(1, 20);
     }
 
     public function login($provider) {
@@ -256,21 +318,18 @@ class Sait extends CI_Controller {
                     log_message('info', 'controllers.HAuth.login: user profile:' . PHP_EOL . print_r($user_profile, TRUE));
 
                     $data['user_profile'] = $user_profile;
-		    
-		    $ret = $this->checkUser($data['user_profile']);
-		    if($ret == 1) {  // kasutaja eksisteerib
-	                //$this->index();
-		    }
-		    if($this->session->userdata('last_page')) {
-	   	        $this->load->helper('url');
-			$last = $this->session->userdata('last_page');
-	   	        redirect("sait/$last",'refresh');
-		    } else {
-			$this->index();
-		    }
 
-
-
+                    $ret = $this->checkUser($data['user_profile']);
+                    if ($ret == 1) {  // kasutaja eksisteerib
+                        //$this->index();
+                    }
+                    if ($this->session->userdata('last_page')) {
+                        $this->load->helper('url');
+                        $last = $this->session->userdata('last_page');
+                        redirect("sait/$last", 'refresh');
+                    } else {
+                        $this->index();
+                    }
                 } else { // Cannot authenticate user
                     show_error('Cannot authenticate user');
                 }
@@ -313,7 +372,8 @@ class Sait extends CI_Controller {
             show_error('Error authenticating user.');
         }
     }
-    public function logout(){        
+
+    public function logout() {
         $this->hybridauthlib->logoutAllProviders();
         $this->index();
     }
