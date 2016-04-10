@@ -29,8 +29,7 @@
                     </li>
                     <?php
                     if($on_logitud == true){
-                       echo "<li ".$page_name == 'kandideeri' ? 'class="active"' : ''.">
-                        <a href=".site_url('sait/kandideeri').">Kandideeri</a>
+                       echo "<li ".($page_name == 'kandideeri' ? 'class="active"' : '')."><a href=".site_url('sait/kandideeri').">Kandideeri</a>
                         </li>";                     
                     }
                     ?>
