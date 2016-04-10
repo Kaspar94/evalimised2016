@@ -33,8 +33,7 @@ function pollKandidaat() {
 			box.innerHTML = data;
 			setTimeout(pollKandidaat,5000);
 		},
-		error: function(textStatus, errorThrown) {
-			//alert(textStatus + " " + errorThrown);
+		error: function(textStatus, errorThrown) {	
 			box.innerHTML = textStatus + " " + errorThrown;
 			setTimeout(pollKandidaat,15000);
 		}

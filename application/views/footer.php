@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-right">
-                    <span id="ajutine">sup<span><p><?php echo $footer_tekst;?></p>
+                    <p id="ajutine"><p><p><?php echo $footer_tekst;?></p>
                 </div>
             </div>
         </div>

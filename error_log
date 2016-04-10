@@ -30,3 +30,60 @@
 [27-Mar-2016 19:17:49 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 27
 [27-Mar-2016 23:30:58 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::hasVoted() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 66
 [27-Mar-2016 23:32:06 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::hasVoted() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 66
+[10-Apr-2016 22:30:53 Europe/Tallinn] PHP Fatal error:  Call to undefined function getKandidaatById() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 189
+[10-Apr-2016 22:31:56 Europe/Tallinn] PHP Fatal error:  Call to undefined method Sait::getKandidaatById() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 189
+[10-Apr-2016 23:30:46 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:48 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:48 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:49 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:53 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:54 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:54 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:54 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:30:55 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:00 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:00 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:01 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:06 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:06 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:07 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:12 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:12 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:13 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:18 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:18 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:23 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:24 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:24 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:29 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:30 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:30 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:35 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:36 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:36 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:41 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:42 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:42 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:47 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:48 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:48 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:53 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:54 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:54 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:31:55 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:00 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:00 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:01 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:06 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:06 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:07 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:32:12 Europe/Tallinn] PHP Fatal error:  Call to undefined method Model_kand::get_UID() in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 306
+[10-Apr-2016 23:45:32 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:34 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:34 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:35 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:38 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:41 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:43 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:47 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308
+[10-Apr-2016 23:45:48 Europe/Tallinn] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ';' in /webpages/valimised16csut/public_html/application/controllers/Sait.php on line 308

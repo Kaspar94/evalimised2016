@@ -298,7 +298,23 @@ class Sait extends CI_Controller {
     }
 
     public function pollResponse() {
-        echo rand(1, 20);
+	$userData = $this->getLoggedAccData();
+	$email = $userData['user_profile']->email;
+	
+	$this->load->model('model_kand'); // load model
+        $votes = $this->model_kand->getVotes();
+
+	$userID = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
+	if($userID == null) {
+		echo "";
+		return;
+	}
+	foreach($votes as $vote) {
+		if($vote->id == $userID[0]->id) {
+			echo "Hääli: ".$vote->Haali;
+		}
+	}
+
     }
 
     public function login($provider) {
