@@ -7,7 +7,7 @@
                 <?php if($on_logitud){
                     if($kandideerib == null){
                     ?>
-                    <div class="col-lg-5 text-center">
+                    <div class="col-lg-5 text-left">
                     <div class="input-group">
                         <p><strong>Eesnimi:</strong> <?php echo $isik['user_profile']->firstName?></p>
                         <p><strong>Perenimi:</strong> <?php echo $isik['user_profile']->lastName?></p>
@@ -24,7 +24,7 @@
                         <select name="formErakond" class="btn btn-default dropdown-toggle">
                             <option value="">Vali...</option>
                             <?php
-	                        foreach($piirkonnad as $k){
+	                        foreach($erakonnad as $k){
                                     echo "<option value=".$k->Erakond."'>".$k->Erakond."</option>";
                                 }
                             ?>                   
