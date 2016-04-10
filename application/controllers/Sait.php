@@ -182,12 +182,41 @@ class Sait extends CI_Controller {
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
+            $this->postKandideeri();
             $this->load->view('kandideeri', $data);
         } else {
             $this->load->view('login', $data);
         }
         $this->load->view('footer', $this->getHfData());
-                if ($this->form_validation->run() == FALSE) {
+    }
+
+    public function sisene() {
+        $data['page_name'] = 'login';
+        $data['on_logitud'] = $this->isLoggedIn();
+        $this->load->view('header', $this->getHfData());
+        $this->load->view('navbar', $data);
+        if ($this->isLoggedIn()) {
+            $data['teenus'] = $this->getLoggedAcc();
+            $data['isik'] = $this->getLoggedAccData();
+            $this->load->view('kasutaja', $data);
+        } else {
+            $this->load->view('login', $data);
+        }
+        $this->load->view('footer', $this->getHfData());
+        //$this->load->view('kasutaja/home', $data);
+    }
+
+    function combo_check($str) {
+        if ($str == 'Vali..') {
+            $this->form_validation->set_message('combo_check', '%s on valimata!');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+    function postKandideeri() {
+        if ($this->form_validation->run() == FALSE) {
             //fail validation
             $this->kandideeri();
         } else {
@@ -223,32 +252,6 @@ class Sait extends CI_Controller {
             redirect('sait/kandideeri');
         }
     }
-
-    public function sisene() {
-        $data['page_name'] = 'login';
-        $data['on_logitud'] = $this->isLoggedIn();
-        $this->load->view('header', $this->getHfData());
-        $this->load->view('navbar', $data);
-        if ($this->isLoggedIn()) {
-            $data['teenus'] = $this->getLoggedAcc();
-            $data['isik'] = $this->getLoggedAccData();
-            $this->load->view('kasutaja', $data);
-        } else {
-            $this->load->view('login', $data);
-        }
-        $this->load->view('footer', $this->getHfData());
-        //$this->load->view('kasutaja/home', $data);
-    }
-
-    function combo_check($str) {
-        if ($str == 'Vali..') {
-            $this->form_validation->set_message('combo_check', '%s on valimata!');
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
-
 
     public function haal() { // haale andmine
         $post_data = $this->input->post('haaletus'); // id, kellele haal anti
