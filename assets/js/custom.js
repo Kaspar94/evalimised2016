@@ -8,6 +8,7 @@ function sortTulemused(str){
     
 }
 // http://hilios.github.io/jQuery.countdown/examples/legacy-style.html
+var hash='';
 $(document).ready(function () {
     $("#countdown").countdown(date, function (event) {
         $(this).html(event.strftime(''
@@ -18,7 +19,29 @@ $(document).ready(function () {
         ));
     });
     $('#tabel').tablesorter();
+    $(function () {
+        var headers = Array();
+        var j = 0;
+        $("table tr th").each(function(i, v){
+            if(i === 0 || i === 2)
+        	headers[j++] = $(this).text();
+        });
 
+        var rows = Array();
+        var j = 0;
+        $("table tr").each(function (i, v) {
+            rows[j] = Array();
+            $(this).children('td').each(function (ii, vv) {
+                if (ii === 0 || ii === 2)
+                    rows[j][ii] = $(this).text();
+            });
+            j++;
+        });
+
+        console.log(headers);
+        console.log(rows);
+    });
+    
     (function ($) {
         $('#otsing').keyup(function () {
 
@@ -40,6 +63,7 @@ $(document).ready(function () {
                 return rex.test($(this).text());
             }).show();
 
+
         });
 
     }(jQuery));
@@ -52,5 +76,6 @@ $(document).ready(function () {
         });
 
     }(jQuery));
+   
 
 });

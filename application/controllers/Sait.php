@@ -106,9 +106,12 @@ class Sait extends CI_Controller {
         $piirkonnad = $this->model_kand->getPiirkonnad();
 	$haaled = $this->model_kand->getVotes();
 	$votes = [];
+        $tot_votes = 0;
 	foreach($haaled as $haal) {
 		$votes[$haal->id] = $haal->Haali;
+                $tot_votes += $haal->Haali;
 	}
+        $data['kokku_haali'] = $tot_votes;
 	$data['haaled'] = $votes;
         $data['kandidaadid'] = $kandidaadid;
         $data['erakonnad'] = $erakonnad;

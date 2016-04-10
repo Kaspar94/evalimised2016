@@ -4,25 +4,25 @@
         <div class="box"> 
             <div class="col-sm-3 text-left">
                 <h3>Tulemused</h3>
-                <p>Kokku hääli: 9001</p>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" id="koik">Kogu riigis</button>
+                <p>Kokku hääli: <?php echo $kokku_haali ?></p>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group" id="list">
+                    <a class="btn btn-default" id="koik" href="#">Kogu riigis</a>
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali piirkond<span class="caret"></span> </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2" id="list">
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2">
                             	<?php
 	                           foreach($piirkonnad as $k){
-                                       	echo "<li><a href='#'>".$k->Piirkond."</a></li> ";
+                                       	echo "<li><a href='#piirkond=".$k->Piirkond."'>".$k->Piirkond."</a></li> ";
                                     }
                                 ?> 
                         </ul> 
                     </div> 
                     <div class="btn-group" role="group"> 
                         <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali erakond<span class="caret"></span> </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3" id="list"> 
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3"> 
                             	<?php
 	                           foreach($erakonnad as $k){
-                                       	echo "<li id='list'><a href='#'>".$k->Erakond."</a></li> ";
+                                       	echo "<li id='list'><a href='#erakond=".$k->Erakond."'>".$k->Erakond."</a></li> ";
                                     }
                                 ?> 
                         </ul> 
