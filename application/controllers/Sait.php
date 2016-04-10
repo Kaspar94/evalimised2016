@@ -188,9 +188,7 @@ class Sait extends CI_Controller {
             $email = $data['isik']['user_profile']->email;
             $kand = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
             $data['kandideerib'] = false;
-            if(count($kand) < 1){
-                $data['kandideerib'] = true;
-            }
+
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
