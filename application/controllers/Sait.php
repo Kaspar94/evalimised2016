@@ -166,7 +166,7 @@ class Sait extends CI_Controller {
             $this->load->model('model_kand');
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
-            $email = $data['isik']->email;
+            $email = $data['isik']['user_profile']->email;
             $data['kandideerib'] = $this->model_kand->getKandidaatById($this->model_kand->getUID($email));
             $this->load->view('kandideeri', $data);
         }
