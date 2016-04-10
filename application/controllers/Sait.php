@@ -189,7 +189,7 @@ class Sait extends CI_Controller {
         }
         if ($this->form_validation->run() == FALSE) {
             //fail validation
-            $this->kandideeri();
+            $this->index();
         } else {
             //pass validation
             $this->load->model('model_kand');
