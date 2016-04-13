@@ -205,7 +205,6 @@ footer p {
 
 .glyphicon.spinning {
     animation: spin 1s infinite linear;
-    -webkit-animation: spin2 1s infinite linear;
 }
 
 @keyframes spin {
