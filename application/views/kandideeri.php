@@ -61,8 +61,8 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-                                        <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert" />
-                                        <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-danger" value="Cancel" />
+                                        <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Kandideeri" />
+                                        <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-danger" value="Katkesta" />
                                     </div>
                                 </div>
                             </fieldset>
