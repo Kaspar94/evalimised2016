@@ -2,10 +2,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <div class="col-xs-6 text-right">
+                <div class="col-xs-6 text-left">
                     <p id="ajutine"><p>
                 </div>
-                <div class="col-xs-6 text-left">
+                <div class="col-xs-6 text-right">
                     <p><?php echo $footer_tekst;?></p>
                 </div>
                 </div>
