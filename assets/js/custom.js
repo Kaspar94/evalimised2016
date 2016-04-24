@@ -8,10 +8,8 @@
 var headers = Array();
 var rows = Array();
 $(document).ready(
-    function () { 
-    var date =  $('#date').text();
-    alert(date);
-    $("#countdown").countdown(date, function (event) {
+    function () {
+    $("#countdown").countdown($('#date').text(), function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
             + '<span class="cd-number">%H</span> tundi '
