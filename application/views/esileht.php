@@ -9,8 +9,8 @@
                             echo '<p>Valimised pole veel alanud</p>';
                         }
                         else if($staatus == 1){
-                            echo '<p>Valimiste lõpuni on jäänud</p>'+         
-                            '<span id="countdown" class="cd-style"></span>';
+                            echo '<p>Valimiste lõpuni on jäänud</p>';         
+                            echo '<span id="countdown" class="cd-style"></span>';
                         }
                         else if($staatus == 2){
                             echo '<p>Valimised on lõppenud! Tulemuste vaatamiseks mine lehele Tulemused</p>';
