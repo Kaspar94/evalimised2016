@@ -308,10 +308,19 @@ class Sait extends CI_Controller {
     public function getVotesLive() {
 	$this->load->model('model_kand');
 	$haaled = $this->model_kand->getVotes();
-
+	$kandidaadid = $this->model_kand->getKandidaadid();
 	$votes = array();
+
+	
 	foreach($haaled as $haal) {
 	    $votes[$haal->id] = $haal->Haali;
+	}
+	foreach($kandidaadid as $kand) {
+		$kand->votes = 0;
+		if(array_key_exists($kand->Number,$votes)) {
+			$kand->votes = $votes[$kand->Number];
+		}
+		$votes[$kand->Number] = $kand;
 	}
         $a = str_replace("[", "", json_encode($votes));
         $b = str_replace("]", "", $a);
