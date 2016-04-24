@@ -75,7 +75,7 @@ $(document).ready(function() {
 	
 	// long polling
 	pollKandidaat();
-	pollVotes();
+	//pollVotes();
 
 	// haale sisestamine
 	var request;
