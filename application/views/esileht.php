@@ -5,9 +5,6 @@
                     
                     <h3>Esileht</h3>
                     <?php
-                        echo '<script>';
-                            echo 'var date = ' . json_encode($enddate) . ';';
-                        echo '</script>';
                         if($staatus == 0){
                             echo '<p>Valimised pole veel alanud</p>';
                         }
@@ -17,9 +14,9 @@
                         }
                         else if($staatus == 2){
                             echo '<p>Valimised on lõppenud! Tulemuste vaatamiseks mine lehele Tulemused</p>';
-                        }
-
+                        }                  
                     ?>
+                    <div id="date" class="hidden"><?php echo $enddate ?></div>
 
                 </div>
             </div>
