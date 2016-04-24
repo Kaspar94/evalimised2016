@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 // http://hilios.github.io/jQuery.countdown/examples/legacy-style.html
+//var date = 2016/07/07;
 var headers = Array();
 var rows = Array();
 $(document).ready(
     function () { 
     
-    $("#countdown").countdown(document.getElementById("date").textContent, function (event) {
+    $("#countdown").countdown(date, function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
             + '<span class="cd-number">%H</span> tundi '
