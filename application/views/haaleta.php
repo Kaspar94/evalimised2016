@@ -21,8 +21,8 @@
                                         <input type="text" id="data" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />			
                                     </div>
                                 </div>
-                                <div class="col-lg-6 text-left" id="spinner"></div>
-                                <div class="col-lg-6 text-left" id="kandB"></div>                
+                                <div class="col-lg-offset-6 text-left" id="spinner"></div>
+                                <div class="col-lg-offset-6 text-left" id="kandB"></div>                
                             </div>';
                         } else {
                             ?>
