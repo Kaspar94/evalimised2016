@@ -81,8 +81,8 @@ class Sait extends CI_Controller {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
         }
-        $data['enddate'] = $this->model_kand->getEndDate()->EndDate;
-        $data['staatus'] = $this->model_kand->getStaatus()->Staatus;
+        $data['enddate'] = $this->model_kand->getEndDate()[0]->EndDate;
+        $data['staatus'] = $this->model_kand->getStaatus()[0]->Staatus;
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('esileht', $data);
