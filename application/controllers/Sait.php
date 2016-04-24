@@ -305,6 +305,19 @@ class Sait extends CI_Controller {
         }
     }
 
+    public function getVotesLive() {
+	$this->load->model('model_kand');
+	$haaled = $this->model_kand->getVotes();
+	$votes = [];
+	foreach($haaled as $haal) {
+	    $votes[$haal->id] = $haal->Haali;
+	}
+        $a = str_replace("[", "", json_encode($votes));
+        $b = str_replace("]", "", $a);
+        echo $b;
+
+    }
+
     public function ajaxResponse() { // naitab kandidaati kes vastab numbrile
         $id = $_GET['q'];
         if (preg_match('/^[0-9]+$/', $id)) { // make sure id is number
