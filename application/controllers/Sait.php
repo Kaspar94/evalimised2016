@@ -25,7 +25,7 @@ class Sait extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->helper('form');
         //echo current_url() == "http://valimised16.cs.ut.ee/index.php/sait;
-        $disabled = ["sisene", "login", "endpoint", "logout"]; // urlid, mida ei salvestata
+        $disabled = ["sisene", "login", "endpoint", "logout", "pollResponse"]; // urlid, mida ei salvestata
         if (!in_array($this->router->fetch_method(), $disabled)) {
             $this->session->set_userdata('last_page', $this->router->fetch_method()); // salvestab kylastatud lehe
         }
