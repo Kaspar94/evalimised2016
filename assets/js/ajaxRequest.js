@@ -52,7 +52,7 @@ $(document).ready(function() {
 	// haale sisestamine
 	var request;
 		
-	$(".input-group").on('click','#haal', function() {
+	$("#kandB").on('click','#haal', function() {
 		
 		if(request) {
 			request.abort();

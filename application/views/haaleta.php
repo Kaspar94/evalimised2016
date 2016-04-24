@@ -15,13 +15,14 @@
                     if ($on_logitud) {
                         if ($haal[0]->Valik == null) {
                             echo
-                            '<div class="col-lg-6 text-left">
-                                <div class="input-group">
-                                    <input type="text" id="data" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />			
+                            '<div class="col-lg-12 text-left">
+                                <div class="col-lg-6 text-left">
+                                    <div class="input-group">
+                                        <input type="text" id="data" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />			
+                                    </div>
                                 </div>
-                                <div class="col-sm-6 text-left" id="spinner"></div>
-                                <div class="col-sm-6 text-left" id="kandB"></div>
-                    
+                                <div class="col-lg-6 text-left" id="spinner"></div>
+                                <div class="col-lg-6 text-left" id="kandB"></div>                
                             </div>';
                         } else {
                             ?>
