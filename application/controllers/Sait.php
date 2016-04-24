@@ -74,14 +74,15 @@ class Sait extends CI_Controller {
     }
 
     public function index() {
-
+        $this->load->model('model_kand');
         $data['page_name'] = 'esileht';
         $data['on_logitud'] = $this->isLoggedIn();
         if ($this->isLoggedIn()) {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
         }
-
+        $data['enddate'] = $this->model_kand->getEndDate()->EndDate;
+        $data['staatus'] = $this->model_kand->getStaatus()->Staatus;
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         $this->load->view('esileht', $data);
