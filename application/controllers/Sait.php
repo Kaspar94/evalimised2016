@@ -93,7 +93,6 @@ class Sait extends CI_Controller {
         $this->load->model('model_kand'); // load model
         $kandidaadid = $this->model_kand->getKandidaadid();
         $data['kandidaadid'] = $kandidaadid;
-
         $data['page_name'] = 'kandidaadid';
         $data['on_logitud'] = $this->isLoggedIn();
         if ($this->isLoggedIn()) {
@@ -139,6 +138,8 @@ class Sait extends CI_Controller {
     public function haaleta() {
         $data['page_name'] = 'haaleta';
         $data['on_logitud'] = $this->isLoggedIn();
+        $data['enddate'] = $this->model_kand->getEndDate()[0]->EndDate;
+        $data['staatus'] = $this->model_kand->getStaatus()[0]->Staatus;
         if ($this->isLoggedIn()) {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
@@ -149,22 +150,24 @@ class Sait extends CI_Controller {
         $this->load->view('haaleta', $data);
         $this->load->view('footer', $this->getHfData());
     }
-    public function tyhistahaal(){
+
+    public function tyhistahaal() {
         $this->load->model('model_kand'); // load model
         if ($this->isLoggedIn()) {
-            if($this->hasVoted()){
+            if ($this->hasVoted()) {
                 $this->model_kand->insertVote(NULL, $this->getLoggedAccData()['user_profile']->email);
             }
         }
         $this->haaleta();
     }
-    public function tyhistakand(){
+
+    public function tyhistakand() {
         $this->load->model('model_kand'); // load model
         if ($this->isLoggedIn()) {
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
             $kand = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
-            if($kand != null){
+            if ($kand != null) {
                 $this->model_kand->eemaldaKandidaat($kand[0]->id);
             }
         }
@@ -189,19 +192,21 @@ class Sait extends CI_Controller {
     public function kandideeri() {
         $data['page_name'] = 'kandideeri';
         $data['on_logitud'] = $this->isLoggedIn();
-            $this->load->model('model_kand');
-            $erakonnad = $this->model_kand->getErakonnad();
-            $erakonnad_n = array();
-            foreach($erakonnad as $ek){
-                $erakonnad_n[] = $ek->Erakond;
-            }
-            $piirkonnad = $this->model_kand->getPiirkonnad();
-            $piirkonnad_n = array();
-            foreach($piirkonnad as $ek){
-                $piirkonnad_n[] = $ek->Piirkond;
-            }
-            $data['erakonnad'] = $erakonnad_n;
-            $data['piirkonnad'] = $piirkonnad_n;
+        $data['enddate'] = $this->model_kand->getEndDate()[0]->EndDate;
+        $data['staatus'] = $this->model_kand->getStaatus()[0]->Staatus;
+        $this->load->model('model_kand');
+        $erakonnad = $this->model_kand->getErakonnad();
+        $erakonnad_n = array();
+        foreach ($erakonnad as $ek) {
+            $erakonnad_n[] = $ek->Erakond;
+        }
+        $piirkonnad = $this->model_kand->getPiirkonnad();
+        $piirkonnad_n = array();
+        foreach ($piirkonnad as $ek) {
+            $piirkonnad_n[] = $ek->Piirkond;
+        }
+        $data['erakonnad'] = $erakonnad_n;
+        $data['piirkonnad'] = $piirkonnad_n;
         $this->load->view('header', $this->getHfData());
         $this->load->view('navbar', $data);
         if ($this->isLoggedIn()) {
@@ -210,45 +215,44 @@ class Sait extends CI_Controller {
             $email = $data['isik']['user_profile']->email;
             $kand = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
             $data['kandideerib'] = false;
-            if($kand != null){
+            if ($kand != null) {
                 $data['kandideerib'] = true;
-            }               
+            }
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
-        if ($this->form_validation->run() == FALSE) {
-            //fail validation
-            $this->load->view('kandideeri', $data);
-        } else {
-            //pass validation
-            $erakond = $this->input->post('erakond');
-            $piirkond = $this->input->post('piirkond');
-            foreach($piirkonnad as $pk){
-                if($pk->Piirkond == $piirkond){
-                    $piirkond = $pk->Id;
+            if ($this->form_validation->run() == FALSE) {
+                //fail validation
+                $this->load->view('kandideeri', $data);
+            } else {
+                //pass validation
+                $erakond = $this->input->post('erakond');
+                $piirkond = $this->input->post('piirkond');
+                foreach ($piirkonnad as $pk) {
+                    if ($pk->Piirkond == $piirkond) {
+                        $piirkond = $pk->Id;
+                    }
                 }
-            }
-            foreach($erakonnad as $pk){
-                if($pk->Erakond == $erakond){
-                    $erakond = $pk->Id;
+                foreach ($erakonnad as $pk) {
+                    if ($pk->Erakond == $erakond) {
+                        $erakond = $pk->Id;
+                    }
                 }
+                $email = $this->getLoggedAccData()['user_profile']->email;
+                $data = array(
+                    'fk_nimi' => $this->model_kand->getUID($email)[0]->Id,
+                    'fk_erakond' => $erakond,
+                    'fk_piirkond' => $piirkond,
+                    'loosung' => $this->input->post('loosung')
+                );
+
+                //insert the form data into database
+                $this->db->insert('Kandidaat', $data);
+
+                //display success message
+                $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Kandideerimine õnnestus!</div>');
+                redirect('sait/kandideeri');
             }
-            $email = $this->getLoggedAccData()['user_profile']->email;
-            $data = array(
-                'fk_nimi' => $this->model_kand->getUID($email)[0]->Id,
-                'fk_erakond' => $erakond,
-                'fk_piirkond' => $piirkond,
-                'loosung' => $this->input->post('loosung')
-            );
-
-            //insert the form data into database
-            $this->db->insert('Kandidaat', $data);
-
-            //display success message
-            $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Kandideerimine õnnestus!</div>');
-            redirect('sait/kandideeri');
-        }
-            
         } else {
             $this->load->view('login', $data);
         }
@@ -318,25 +322,23 @@ class Sait extends CI_Controller {
     }
 
     public function pollResponse() {
-	$userData = $this->getLoggedAccData();
-        if($this->isLoggedIn()){
-	$email = $userData['user_profile']->email;
-	
-	$this->load->model('model_kand'); // load model
-        $votes = $this->model_kand->getVotes();
-	$userID = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
-	if($userID == null) {
-		echo "";
-		return;
-	}
-	foreach($votes as $vote) {
-		if($vote->id == $userID[0]->id) {
-			echo "Hääli: ".$vote->Haali;
-		}
-	}            
+        $userData = $this->getLoggedAccData();
+        if ($this->isLoggedIn()) {
+            $email = $userData['user_profile']->email;
+
+            $this->load->model('model_kand'); // load model
+            $votes = $this->model_kand->getVotes();
+            $userID = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
+            if ($userID == null) {
+                echo "";
+                return;
+            }
+            foreach ($votes as $vote) {
+                if ($vote->id == $userID[0]->id) {
+                    echo "Hääli: " . $vote->Haali;
+                }
+            }
         }
-
-
     }
 
     public function login($provider) {
