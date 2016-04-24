@@ -21,7 +21,13 @@ class Model_kand extends CI_Model {
 		return $exec->result();           
         }
         public function insertVote($uid, $email){
-        	$valikToIsik = "UPDATE Isik SET valik = '$uid' WHERE email = '$email'"; 
+                if($uid == NULL){
+                    $valikToIsik = "UPDATE Isik SET valik = NULL WHERE email = '$email'"; 
+                }
+                else{
+                    $valikToIsik = "UPDATE Isik SET valik = '$uid' WHERE email = '$email'";     
+                }
+        	
 
         	$this->db->query($valikToIsik); 
         }
