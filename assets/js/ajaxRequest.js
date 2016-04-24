@@ -40,6 +40,24 @@ function pollKandidaat() {
 	});
 }
 
+function pollVotes() {
+	if(window.location.pathname != "/index.php/sait/tulemused") {
+		return;
+	}
+	$.ajax({
+		type: "GET",
+		url: "http://valimised16.cs.ut.ee/index.php/sait/getVotesLive",
+		async: true,
+		timeout: 50000,
+
+		success: function(data) {
+			var data_json = jQuery.parseJSON(data);
+			$.each(data_json, function(k, v) {
+				document.getElementById(k).innerHTML = v;
+			});			
+		}
+	});
+}
 
 
 
@@ -47,7 +65,7 @@ $(document).ready(function() {
 	
 	// long polling
 	pollKandidaat();
-
+	pollVotes();
 
 	// haale sisestamine
 	var request;
