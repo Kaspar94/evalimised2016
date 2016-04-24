@@ -138,6 +138,7 @@ class Sait extends CI_Controller {
     public function haaleta() {
         $data['page_name'] = 'haaleta';
         $data['on_logitud'] = $this->isLoggedIn();
+        $this->load->model('model_kand'); // load model
         $data['enddate'] = $this->model_kand->getEndDate()[0]->EndDate;
         $data['staatus'] = $this->model_kand->getStaatus()[0]->Staatus;
         if ($this->isLoggedIn()) {
@@ -192,9 +193,9 @@ class Sait extends CI_Controller {
     public function kandideeri() {
         $data['page_name'] = 'kandideeri';
         $data['on_logitud'] = $this->isLoggedIn();
+        $this->load->model('model_kand');
         $data['enddate'] = $this->model_kand->getEndDate()[0]->EndDate;
         $data['staatus'] = $this->model_kand->getStaatus()[0]->Staatus;
-        $this->load->model('model_kand');
         $erakonnad = $this->model_kand->getErakonnad();
         $erakonnad_n = array();
         foreach ($erakonnad as $ek) {
