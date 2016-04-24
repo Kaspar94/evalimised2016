@@ -152,7 +152,7 @@ class Sait extends CI_Controller {
         $this->load->model('model_kand'); // load model
         if ($this->isLoggedIn()) {
             if($this->hasVoted()){
-                $this->model_kand->insertVote(NULL, $this->getLoggedAccData()['user_profile']->email);
+                $this->model_kand->insertVote("NULL", $this->getLoggedAccData()['user_profile']->email);
             }
         }
         $this->haaleta();
