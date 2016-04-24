@@ -17,13 +17,12 @@
                             echo
                             '<div class="col-lg-6 text-left">
                                 <div class="input-group">
-                                    <input type="text" id="data" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />
-			
-                        <div class="col-sm-6 text-left" id="spinner"></div>
-                        <div class="col-sm-6 text-left" id="kandB"></div>
-                    </div>
+                                    <input type="text" id="data" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />			
+                                </div>
+                                <div class="col-sm-6 text-left" id="spinner"></div>
+                                <div class="col-sm-6 text-left" id="kandB"></div>
                     
-                    </div>';
+                            </div>';
                         } else {
                             ?>
                             <div class="col-lg-5 text-left">
