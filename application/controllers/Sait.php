@@ -162,7 +162,7 @@ class Sait extends CI_Controller {
         if ($this->isLoggedIn()) {
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
-            $kand = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
+            $kand = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
             if($kand != null){
                 $this->model_kand->eemaldaKandidaat($kand[0]->Number);
             }
@@ -207,7 +207,7 @@ class Sait extends CI_Controller {
             $data['teenus'] = $this->getLoggedAcc();
             $data['isik'] = $this->getLoggedAccData();
             $email = $data['isik']['user_profile']->email;
-            $kand = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
+            $kand = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
             $data['kandideerib'] = false;
             if($kand != null){
                 $data['kandideerib'] = true;
