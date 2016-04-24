@@ -164,7 +164,7 @@ class Sait extends CI_Controller {
             $email = $data['isik']['user_profile']->email;
             $kand = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
             if($kand != null){
-                $this->model_kand->eemaldaKandidaat($kand[0]->Number);
+                $this->model_kand->eemaldaKandidaat($kand[0]->id);
             }
         }
         $this->kandideeri();
