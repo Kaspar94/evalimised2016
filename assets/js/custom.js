@@ -9,7 +9,7 @@ var headers = Array();
 var rows = Array();
 $(document).ready(
     function () { 
-    var date = document.getElementById("date").innerHTML;
+    var date =  $('#date').text();
     $("#countdown").countdown(date, function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
