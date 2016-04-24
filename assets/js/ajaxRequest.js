@@ -9,7 +9,7 @@ function showKandidaat(str) {
 	xhttp.onreadystatechange = function() {
 		if(xhttp.readyState === 4 && xhttp.status === 200) {
 			var data_json = jQuery.parseJSON(xhttp.responseText);
-			document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">Hääleta</button><p>Kandidaat:"+data_json.Nimi+" "+data_json.Erakond+" "+data_json.Piirkond+"</p>";
+			document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">Hääleta</button><h4>Kandidaat: "+data_json.Nimi+", "+data_json.Erakond+", "+data_json.Piirkond+"</h4>";
 	
 		} else {
 			document.getElementById("kandB").innerHTML = "";
