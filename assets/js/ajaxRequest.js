@@ -54,7 +54,12 @@ function pollVotes() {
 			var data_json = jQuery.parseJSON(data);
 			$.each(data_json, function(k, v) {
 				document.getElementById(k).innerHTML = v;
-			});			
+			});
+
+			setTimeout(pollVotes,5000);			
+		},
+		error: function(textStatus, errorThrown) {
+			setTimeout(pollVotes,10000);
 		}
 	});
 }
