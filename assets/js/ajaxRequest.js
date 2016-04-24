@@ -1,13 +1,13 @@
 function showKandidaat(str) {
-	var xhhtp;
+	var xhttp;
 	document.getElementById("spinner").innerHTML = "";
-	if(str.length == 0) { // kui vastus tyhi
+	if(str.length === 0) { // kui vastus tyhi
 		document.getElementById("kandB").innerHTML = "";
 		return;
 	}	
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
-		if(xhttp.readyState == 4 && xhttp.status == 200) {
+		if(xhttp.readyState === 4 && xhttp.status === 200) {
 			var data_json = jQuery.parseJSON(xhttp.responseText);
 			document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">"+data_json.Nimi+" "+data_json.Erakond+" "+data_json.Piirkond+"</button>";
 	

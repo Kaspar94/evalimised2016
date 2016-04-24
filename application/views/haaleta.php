@@ -19,10 +19,14 @@
                     </div>';                        
                     }
                     else{
-                        echo
-                    '<div class="col-lg-5 text-center">
-                    <p>Oled juba hääletanud kandidaat number '.$haal[0]->Valik.' poolt</p>
-                    </div>';                          
+                        ?>
+                    <div class="col-lg-5 text-center">
+                    <p>Oled juba hääletanud kandidaat number <?php echo $haal[0]->Valik ?> poolt</p>
+                    <p>
+                        <a class="btn btn-danger" href="<?php echo site_url('sait/tyhistahaal')?>">Tühista hääl</a>
+                    </p>
+                    </div>                          
+                    <?php
                     }
                 }
                 else{

@@ -8,7 +8,8 @@ var date = "2016/05/05";
 var headers = Array();
 var rows = Array();
 $(document).ready(
-    function () {   
+    function () { 
+    
     $("#countdown").countdown(date, function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
@@ -17,7 +18,7 @@ $(document).ready(
             + '<span class="cd-number">%S</span> sekundit'
         ));
     });
-    $('#tabel').tablesorter();
+    $('#tabel').tablesorter({sortList: [[4,1], [3,1]]});
     
     $(function () {
         headers = $("th", $("#tabel")).map(function () {
@@ -30,8 +31,7 @@ $(document).ready(
                     return this.innerHTML;
                 }).get()];
         }).get();
-        if(document.getElementById("#chart") !== null)
-            createErakondChart("");
+
     });
     (function ($) {
         $('#otsing').keyup(function () {
@@ -56,7 +56,7 @@ $(document).ready(
 
         });
     }(jQuery));
-        (function () {
+    (function () {
         $('#erakonnad').on('click','li',function () {
             var rex = new RegExp($(this).text(), 'i');
             $('.searchable tr').hide();
@@ -67,14 +67,15 @@ $(document).ready(
             
         });
     }(jQuery));
-    (function () {
+    (function () { 
         $('#koik').click(function () {
-
-            var rex = new RegExp($, 'i');
             $('.searchable tr').show();
             createErakondChart("");
         });
     }(jQuery));
+    
+    setTimeout(function(){$("#koik").click(); }, 0);
+        
 
 });
 function createErakondChart($name){
@@ -101,21 +102,25 @@ function createErakondChart($name){
     var v = 30;
     if($name === "")
         $name = "kogu riik";
-    document.getElementById("chart").innerHTML = "<p>Valitud piirkond: "+$name+"<p>Kokku hääli: "+total_votes+"</p>";
-    for (var key in votes) {
-        if (votes.hasOwnProperty(key)) {
-            //votes[key] = v;
-            //v+=10;
-            $("#chart").append('<div class="progress" style="width:500px;margin-bottom:0px;margin-top:20px;">' +
-                    '<div class="progress-bar" id='+key+' role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;transition-duration: 3s;">' +
-                    '<div class="text-left">'+key+': '+votes[key].toString()+' häält</div>' +
+    document.getElementById("chart").innerHTML = "<p>Valitud piirkond: "+$name+"<p>Kokku piirkonnas hääli: "+total_votes+"</p>";
+    var sortedVotes = [];
+    for (var vote in votes)
+        sortedVotes.push([vote, votes[vote]]);
+    sortedVotes.sort(function(a, b) {return b[1] - a[1];});
+    for (var i = 0; i < sortedVotes.length; i++) {
+            var id = sortedVotes[i][0].toString().replace(" ", "_");
+            var h = 'häält';
+            if(sortedVotes[i][1] === 1)
+                h = 'hääl';
+            $("#chart").append('<span>'+sortedVotes[i][0]+'</span><div class="progress" style="width:500px;margin-bottom:10px;margin-top:0px;">' +
+                    '<div class="progress-bar" id='+id+' role="progressbar" aria-valuenow="'+sortedVotes[i][1]*100/total_votes+'" aria-valuemin="0" aria-valuemax="100" style="min-width: 0%;transition-duration: 3s;text-overflow: auto">' +
+                    '<div class="text-left">'+sortedVotes[i][1]+' '+h+'</div>' +
                     '</div></div>');
 
-            $('#'+key).css("width", votes[key]*100/total_votes+"%");
+            $('#'+sortedVotes[i][0]).css("width", sortedVotes[i][1]*100/total_votes+"%");
             
-            console.log(votes[key]+key);
+            console.log(sortedVotes[i][1]+sortedVotes[i][0]);
             //alert(key + " -> " + votes[key]);
-        }
     }  
 }
 
@@ -143,22 +148,24 @@ function createLiigeChart($name){
     var v = 30;
     if($name === "")
         $name = "kogu riik";
-    document.getElementById("chart").innerHTML ="<p>Valitud erakond: "+$name+"<p>Kokku hääli: "+total_votes+"</p>";
-    for (var key in votes) {
-        if (votes.hasOwnProperty(key)) {
-            //votes[key] = v;
-            //v+=10;
-            var id = key.toString().replace(" ", "_");
-            
-            $("#chart").append('<div class="progress" style="width:500px;margin-bottom:0px;margin-top:20px;">' +
-                    '<div class="progress-bar" id='+id+' role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;transition-duration: 3s;">' +
-                    '<div class="text-left">'+key+': '+votes[key]+' häält</div>' +
+    document.getElementById("chart").innerHTML ="<p>Valitud erakond: "+$name+"<p>Kokku erakonnal hääli: "+total_votes+"</p>";
+    var sortedVotes = [];
+    for (var vote in votes)
+        sortedVotes.push([vote, votes[vote]]);
+    sortedVotes.sort(function(a, b) {return b[1] - a[1];});  
+    for (var i = 0; i < sortedVotes.length; i++) {
+            var id = sortedVotes[i][0].toString().replace(" ", "_");
+            var h = 'häält';
+            if(sortedVotes[i][1] === 1)
+                h = 'hääl';
+            $("#chart").append('<span>'+sortedVotes[i][0]+'</span><div class="progress" style="width:500px;margin-bottom:10px;margin-top:0px;">' +
+                    '<div class="progress-bar" id='+id+' role="progressbar" aria-valuenow="'+sortedVotes[i][1]*100/total_votes+'" aria-valuemin="0" aria-valuemax="100" style="min-width: 0%;transition-duration: 3s;text-overflow: auto">' +
+                    '<div class="text-left">'+sortedVotes[i][1]+' '+h+'</div>' +
                     '</div></div>');
 
-            $('#'+id).css("width", votes[key]*100/total_votes+"%");
+            $('#'+id).css("width", sortedVotes[i][1]*100/total_votes+"%");
             
-            console.log(votes[key]+" "+key);
+            console.log(sortedVotes[i][1]+" "+sortedVotes[i][0]);
             //alert(key + " -> " + votes[key]);
-        }
     }  
 }

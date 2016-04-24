@@ -148,6 +148,15 @@ class Sait extends CI_Controller {
         $this->load->view('haaleta', $data);
         $this->load->view('footer', $this->getHfData());
     }
+    public function tyhistahaal(){
+        $this->load->model('model_kand'); // load model
+        if ($this->isLoggedIn()) {
+            if($this->hasVoted()){
+                $this->model_kand->insertVote(NULL, $this->getLoggedAccData()['user_profile']->email);
+            }
+        }
+        $this->haaleta();
+    }
 
     public function kasutaja() {
         $data['page_name'] = 'kasutaja';
@@ -188,7 +197,9 @@ class Sait extends CI_Controller {
             $email = $data['isik']['user_profile']->email;
             $kand = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
             $data['kandideerib'] = false;
-
+            if($kand != null){
+                $data['kandideerib'] = true;
+            }               
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
@@ -255,10 +266,6 @@ class Sait extends CI_Controller {
         } else {
             return TRUE;
         }
-    }
-
-    function postKandideeri() {
-
     }
 
     public function haal() { // haale andmine
