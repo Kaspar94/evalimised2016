@@ -306,11 +306,11 @@ class Sait extends CI_Controller {
 
     public function pollResponse() {
 	$userData = $this->getLoggedAccData();
+        if($this->isLoggedIn()){
 	$email = $userData['user_profile']->email;
 	
 	$this->load->model('model_kand'); // load model
         $votes = $this->model_kand->getVotes();
-
 	$userID = $this->model_kand->getKandidaatByUserID($this->model_kand->getUID($email)[0]->Id);
 	if($userID == null) {
 		echo "";
@@ -320,7 +320,9 @@ class Sait extends CI_Controller {
 		if($vote->id == $userID[0]->id) {
 			echo "Hääli: ".$vote->Haali;
 		}
-	}
+	}            
+        }
+
 
     }
 
