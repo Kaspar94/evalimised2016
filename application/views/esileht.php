@@ -16,7 +16,7 @@
                             echo '<p>Valimised on lõppenud! Tulemuste vaatamiseks mine lehele Tulemused</p>';
                         }                  
                     ?>
-                    <div class="hidden" id="date"><?php echo $enddate ?></div>
+                    <div id="date"><?php echo $enddate ?></div>
 
                 </div>
             </div>
