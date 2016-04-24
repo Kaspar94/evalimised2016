@@ -50,7 +50,7 @@
                             <tbody class="searchable"> 
 					<?php
 	                           	foreach($kandidaadid as $k){
-                                        	echo "<tr>";
+                                        	echo "<tr class=\"kandidaat\">";
                                         	echo "<td scope=\"row\">".$k->Number."</td>";
                                         	echo "<td>".$k->Nimi."</td>";
 	                                        echo "<td>".$k->Erakond."</td>";

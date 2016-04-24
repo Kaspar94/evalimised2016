@@ -41,9 +41,11 @@ function pollKandidaat() {
 }
 
 function pollVotes() {
+
 	if(window.location.pathname != "/index.php/sait/tulemused") {
 		return;
 	}
+
 	$.ajax({
 		type: "GET",
 		url: "http://valimised16.cs.ut.ee/index.php/sait/getVotesLive",
@@ -52,14 +54,17 @@ function pollVotes() {
 
 		success: function(data) {
 			var data_json = jQuery.parseJSON(data);
+			var htmlContent = "";
 			$.each(data_json, function(k, v) {
-				document.getElementById(k).innerHTML = v;
+				htmlContent += "<tr><td scope=\"row\">"+v.Number+"</td><td>"+v.Nimi+"</td><td>"+v.Erakond+"</td><td>"+v.Piirkond+"</td><td>"+v.votes+"</td></tr>";
 			});
+			$('.searchable').html(htmlContent);	
 
 			setTimeout(pollVotes,5000);			
 		},
 		error: function(textStatus, errorThrown) {
 			setTimeout(pollVotes,10000);
+		
 		}
 	});
 }
