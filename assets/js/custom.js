@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var date = "2016/05/01";
+var date = document.getElementById("date").innerHTML;
 // http://hilios.github.io/jQuery.countdown/examples/legacy-style.html
 var headers = Array();
 var rows = Array();
 $(document).ready(
     function () { 
     
-    $("#countdown").countdown(document.getElementById("date").innerHTML, function (event) {
+    $("#countdown").countdown(date, function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
             + '<span class="cd-number">%H</span> tundi '
