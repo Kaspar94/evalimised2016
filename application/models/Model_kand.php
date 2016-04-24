@@ -31,7 +31,9 @@ class Model_kand extends CI_Model {
 
         	$this->db->query($valikToIsik); 
         }
-
+        public function eemaldaKandidaat($id){
+            $this->db->query("DELETE FROM `Kandidaat` WHERE `Kandidaat`.`id` = '$id'");
+        }
 	public function insertKandidaat($loosung) {
 
 		$query = "INSERT INTO `Kandidaat` (`fk_nimi`,`fk_erakond`,`fk_piirkond`,`loosung`,`haali`)

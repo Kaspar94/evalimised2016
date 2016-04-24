@@ -20,7 +20,7 @@
                     }
                     else{
                         ?>
-                    <div class="col-lg-5 text-center">
+                    <div class="col-lg-5 text-left">
                     <p>Oled juba hääletanud kandidaat number <?php echo $haal[0]->Valik ?> poolt</p>
                     <p>
                         <a class="btn btn-danger" href="<?php echo site_url('sait/tyhistahaal')?>">Tühista hääl</a>

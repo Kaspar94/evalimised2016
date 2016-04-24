@@ -74,8 +74,11 @@
                     <?php
                     } else{
                         echo
-                        '<div class="col-lg-5 text-center">
-                    <p>Oled juba kandidaatide nimekirjas</p>
+                        '<div class="col-lg-5 text-left">
+                    <p>Olete juba kandidaatide nimekirjas!</p>
+                    <p>
+                        <a class="btn btn-danger" href="'.site_url('sait/tyhistakand').'">Kustuta</a>
+                    </p>
                     </div>';
                     }
                 } else {

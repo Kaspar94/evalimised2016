@@ -157,6 +157,18 @@ class Sait extends CI_Controller {
         }
         $this->haaleta();
     }
+    public function tyhistakand(){
+        $this->load->model('model_kand'); // load model
+        if ($this->isLoggedIn()) {
+            $data['isik'] = $this->getLoggedAccData();
+            $email = $data['isik']['user_profile']->email;
+            $kand = $this->model_kand->getKandidaatById($this->model_kand->getUID($email)[0]->Id);
+            if($kand != null){
+                $this->model_kand->eemaldaKandidaat($kand);
+            }
+        }
+        $this->kandideeri();
+    }
 
     public function kasutaja() {
         $data['page_name'] = 'kasutaja';
