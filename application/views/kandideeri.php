@@ -5,11 +5,9 @@
             <div class="col-lg-12 text-left">
                 <h3>Kandideeri</h3>
                 <?php
-                if ($staatus == 0) {
-                    echo '<div class="col-lg-5 text-left"><p>Hääletamine pole veel alanud</p></div>';
-                } else if ($staatus == 2) {
+                if ($staatus == 2) {
                     echo '<div class="col-lg-5 text-left"><p>Hääletamine on juba lõppenud</p></div>';
-                } else if ($staatus == 1) {
+                } else {
                     if ($on_logitud) {
                         if ($kandideerib == false) {
                             ?>
