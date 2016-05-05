@@ -10,7 +10,7 @@ html{
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     /*background: url('../img/bg.jpg') no-repeat center center fixed;*/
-    background-color: #dddddd;
+    background-color: #E7E7E7;
     background-size: cover;
     margin-bottom: 40px;
 }
@@ -43,7 +43,7 @@ hr {
     float: left;
 }
 #title {
-    background:#333333;
+    background:#26ADE4;
     width: 100%;
 }
 
@@ -56,7 +56,7 @@ hr {
     font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1.5em;
     line-height: normal;
-    color: #fff;
+    color: #D1E751;
 }
 
 .navbar-nav {
@@ -141,6 +141,9 @@ footer p {
 .login {
     width: inherit;
 }
+.progress-bar {
+    background-color: #26ADE4;
+}
 @media screen and (min-width:768px) {
     .title {
         display: inherit;
@@ -167,6 +170,7 @@ footer p {
     .navbar {
         border-radius: 0;
         min-height: 0;
+        background-color: #4DBCE9;
     }
 
     .navbar-header {
@@ -177,7 +181,6 @@ footer p {
         width: 100%;
         border: none;
         background: #fff;
-        background: rgba(255,255,255,0.9);
     }
 
     .nav>li>a {

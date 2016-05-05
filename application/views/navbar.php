@@ -37,10 +37,10 @@
                 <ul class="nav navbar-nav navbar-right">
                     <?php
                     if ($on_logitud == false) {
-                        echo "<li ".($page_name == 'login' ? 'class="active"' : '')."><a href=".site_url('sait/sisene')."><span id=\"glyph2\" class=\"glyphicon glyphicon-log-in\" aria-hidden=\"true\"></span></a></li>";
+                        echo "<li ".($page_name == 'login' ? 'class="active"' : '')."><a href=".site_url('sait/sisene')."><span id=\"glyph\" class=\"glyphicon glyphicon-log-in\" aria-hidden=\"true\"></span></a></li>";
                     } else {
-                        echo "<li ".($page_name == 'kasutaja' ? 'class="active"' : '')."><a href=".site_url('sait/kasutaja')."><span id=\"glyph3\" class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span></a></li>";
-                        echo "<li ".($page_name == 'logout' ? 'class="active"' : '')."><a href=".site_url('sait/logout/')."><span id=\"glyph4\" class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span></a></li>";
+                        echo "<li ".($page_name == 'kasutaja' ? 'class="active"' : '')."><a href=".site_url('sait/kasutaja')."><span id=\"glyph\" class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span></a></li>";
+                        echo "<li ".($page_name == 'logout' ? 'class="active"' : '')."><a href=".site_url('sait/logout/')."><span id=\"glyph\" class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span></a></li>";
                     }
                     ?>
                 </ul>
