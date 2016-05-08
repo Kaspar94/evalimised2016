@@ -51,7 +51,7 @@
 					<?php
 	                           	foreach($kandidaadid as $k){
                                         	echo "<tr class=\"kandidaat\">";
-                                        	echo "<td scope=\"row\">".$k->Number."</td>";
+                                        	echo "<td>".$k->Number."</td>";
                                         	echo "<td>".$k->Nimi."</td>";
 	                                        echo "<td>".$k->Erakond."</td>";
         	                                echo "<td>".$k->Piirkond."</td>";
