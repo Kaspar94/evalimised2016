@@ -9,14 +9,7 @@ var headers = Array();
 var rows = Array();
 $(document).ready(
     function () {
-    $("#countdown").countdown($('#date').text().toString(), function (event) {
-        $(this).html(event.strftime(''
-            + '<span class="cd-number">%D</span> päeva '
-            + '<span class="cd-number">%H</span> tundi '
-            + '<span class="cd-number">%M</span> minutit '
-            + '<span class="cd-number">%S</span> sekundit'
-        ));
-    });
+
     $('#tabel').tablesorter({sortList: [[4,1], [3,1]]});
     
     $(function () {
