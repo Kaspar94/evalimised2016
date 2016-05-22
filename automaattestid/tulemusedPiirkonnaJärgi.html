@@ -4,22 +4,42 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://valimised16.cs.ut.ee/" />
-<title>vaataKandidaate</title>
+<title>New Test</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">vaataKandidaate</td></tr>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
 </thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/index.php/sait</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Kandidaadid</td>
+	<td></td>
+</tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Tulemused</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>//table[@id='tabel']/tbody/tr/td[2]</td>
+	<td>click</td>
+	<td>id=btnGroupVerticalDrop2</td>
 	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Tartu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#chart &gt; p</td>
+	<td>Valitud piirkond: Tartu</td>
 </tr>
 </tbody></table>
 </body>
