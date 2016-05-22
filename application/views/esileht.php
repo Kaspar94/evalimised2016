@@ -9,7 +9,7 @@
                             echo '<p>Valimised pole veel alanud</p>';
                         }
                         else if($staatus == 1){
-                            echo '<p>Valimiste lõpuni on jäänud</p>';         
+                            echo "<p>$timeleft</p>";         
                             echo '<span id="countdown" class="cd-style"></span>';
                         }
                         else if($staatus == 2){

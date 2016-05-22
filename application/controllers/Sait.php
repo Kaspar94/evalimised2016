@@ -81,6 +81,14 @@ class Sait extends CI_Controller {
     }
 
     public function index() {
+        $this->lang->load('main_lang',$this->session->userdata('language'));
+
+	$this->data["timeleft"] = $this->lang->line('timeleft');
+	$this->data["days"] = $this->lang->line('days');
+	$this->data["hours"] = $this->lang->line('hours');
+	$this->data["minutes"] = $this->lang->line('minutes');
+	$this->data["seconds"] = $this->lang->line('seconds');
+
         $this->load->model('model_kand');
         $this->data['page_name'] = 'esileht';
         $this->data['on_logitud'] = $this->isLoggedIn();
@@ -97,6 +105,16 @@ class Sait extends CI_Controller {
     }
 
     public function kandidaadid() {
+	$this->lang->load('kandidaadid_lang',$this->session->userdata('language'));
+
+	$this->data["search"] = $this->lang->line('search');
+	$this->data["searchbar"] = $this->lang->line('searchbar');
+	$this->data["number"] = $this->lang->line('number');
+	$this->data["name"] = $this->lang->line('name');
+	$this->data["party"] = $this->lang->line('party');
+	$this->data["region"] = $this->lang->line('region');
+	$this->data["slogan"] = $this->lang->line('slogan');
+
         $this->load->model('model_kand'); // load model
         $kandidaadid = $this->model_kand->getKandidaadid();
         $this->data['kandidaadid'] = $kandidaadid;
@@ -113,6 +131,26 @@ class Sait extends CI_Controller {
     }
 
     public function tulemused() {
+	$this->lang->load('tulemused_lang',$this->session->userdata('language'));
+
+	$this->data["totalvotes"] = $this->lang->line('totalvotes');
+	$this->data["wholecountry"] = $this->lang->line('wholecountry');
+	$this->data["chooseregion"] = $this->lang->line('chooseregion');
+	$this->data["chosenregion"] = $this->lang->line('chosenregion');
+	$this->data["totalregionvotes"] = $this->lang->line('totalregionvotes');
+	$this->data["chooseparty"] = $this->lang->line('chooseparty');
+	$this->data["chosenparty"] = $this->lang->line('chosenparty');
+	$this->data["totalpartyvotes"] = $this->lang->line('totalpartyvotes');
+	$this->data["results"] = $this->lang->line('results');
+	$this->data["number"] = $this->lang->line('number');
+	$this->data["name"] = $this->lang->line('name');
+	$this->data["party"] = $this->lang->line('party');
+	$this->data["region"] = $this->lang->line('region');
+	$this->data["votes_lang"] = $this->lang->line('votes');
+
+
+
+
         $this->load->model('model_kand'); // load model
         $kandidaadid = $this->model_kand->getKandidaadid();
         $erakonnad = $this->model_kand->getErakonnad();
@@ -143,6 +181,14 @@ class Sait extends CI_Controller {
     }
 
     public function haaleta() {
+
+	$this->lang->load('haaleta_lang',$this->session->userdata('language'));
+
+	$this->data["votenow"] = $this->lang->line('votenow');
+	$this->data["logforvoting"] = $this->lang->line('logforvoting');
+	$this->data["login"] = $this->lang->line('login');
+	$this->data["insertnumber"] = $this->lang->line('insertnumber');
+
         $this->data['page_name'] = 'haaleta';
         $this->data['on_logitud'] = $this->isLoggedIn();
         $this->load->model('model_kand'); // load model
@@ -183,6 +229,14 @@ class Sait extends CI_Controller {
     }
 
     public function kasutaja() {
+
+	$this->lang->load('settings_lang',$this->session->userdata('language'));
+
+	$this->data["settings"] = $this->lang->line('settings');
+	$this->data["firstname"] = $this->lang->line('firstname');
+	$this->data["lastname"] = $this->lang->line('lastname');
+	$this->data["email"] = $this->lang->line('email');
+
         $this->data['page_name'] = 'kasutaja';
         $this->data['on_logitud'] = $this->isLoggedIn();
         $this->load->view('header', $this->getHfData());
@@ -198,6 +252,15 @@ class Sait extends CI_Controller {
     }
 
     public function kandideeri() {
+
+	$this->lang->load('kandideeri_lang',$this->session->userdata('language'));
+
+	$this->data["party"] = $this->lang->line('party');
+	$this->data["region"] = $this->lang->line('region');
+	$this->data["slogan"] = $this->lang->line('slogan');
+	$this->data["start"] = $this->lang->line('start');
+	$this->data["stop"] = $this->lang->line('stop');
+
         $this->data['page_name'] = 'kandideeri';
         $this->data['on_logitud'] = $this->isLoggedIn();
         $this->load->model('model_kand');
@@ -269,6 +332,13 @@ class Sait extends CI_Controller {
     }
 
     public function sisene() {
+
+	$this->lang->load('sisene_lang',$this->session->userdata('language'));
+
+	$this->data["login"] = $this->lang->line('login');
+	$this->data["loginfb"] = $this->lang->line('loginfb');
+	$this->data["logingoogle"] = $this->lang->line('logingoogle');
+
         $this->data['page_name'] = 'login';
         $this->data['on_logitud'] = $this->isLoggedIn();
         $this->load->view('header', $this->getHfData());
