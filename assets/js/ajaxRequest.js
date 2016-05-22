@@ -9,7 +9,12 @@ function showKandidaat(str) {
 	xhttp.onreadystatechange = function() {
 		if(xhttp.readyState === 4 && xhttp.status === 200) {
 			var data_json = jQuery.parseJSON(xhttp.responseText);
-			document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">Hääleta</button><h4>Kandidaat: "+data_json.Nimi+", "+data_json.Erakond+", "+data_json.Piirkond+"</h4>";
+			if(keel == "est") {
+				document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">Hääleta</button><h4>Kandidaat: "+data_json.Nimi+", "+data_json.Erakond+", "+data_json.Piirkond+"</h4>";
+			} else {
+				document.getElementById("kandB").innerHTML = "<button class=\"btn btn-default\" id=\"haal\" type=\"submit\">Vote</button><h4>Candidate: "+data_json.Nimi+", "+data_json.Erakond+", "+data_json.Piirkond+"</h4>";
+
+			}
 	
 		} else {
 			document.getElementById("kandB").innerHTML = "";
@@ -72,8 +77,7 @@ function pollVotes() {
 
 
 $(document).ready(function() {
-	
-	// long polling
+		// long polling
 	pollKandidaat();
 	//pollVotes();
 
@@ -100,7 +104,11 @@ $(document).ready(function() {
 			type: "post",
 			data: {'haaletus' : $input.val()},
 			success: function(resp) {
-				spinner.innerHTML = "Hääl kinnitatud." + resp;
+				if(keel == "est") {
+					spinner.innerHTML = "Hääl kinnitatud." + resp;
+				} else {
+					spinner.innerHTML = "Vote confirmed." + resp;
+				}
 			},
 			complete: function() {
 			},

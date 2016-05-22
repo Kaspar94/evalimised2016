@@ -3,7 +3,7 @@
     <div class="row">
         <div class="box"> 
             <div class="col-sm-3 text-left">
-                <h3>Tulemused</h3>
+                <h3><?php echo $results; ?></h3>
                 <p><?php echo $totalvotes.": ".$kokku_haali ?></p>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group" id="list">
                     <a class="btn btn-default" id="koik" href="#"><?php echo $wholecountry; ?></a>
