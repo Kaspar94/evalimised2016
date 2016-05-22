@@ -3,7 +3,7 @@
     <div class="row">
         <div class="box">
             <div class="col-lg-12 text-left">
-                <h3>Kandideeri</h3>
+                <h3><?php echo $startcampaign; ?></h3>
                 <?php
                 if ($staatus == 2) {
                     echo '<div class="col-lg-5 text-left"><p>Hääletamine on juba lõppenud</p></div>';
@@ -20,7 +20,7 @@
                                     <div class="form-group">
                                         <div class="row colbox">
                                             <div class="col-lg-4 col-sm-4">
-                                                <label for="piirkond" class="control-label">Piirkond</label>
+                                                <label for="piirkond" class="control-label"><?php echo $region; ?></label>
                                             </div>
                                             <div class="col-lg-8 col-sm-8">
 
@@ -36,7 +36,7 @@
                                     <div class="form-group">
                                         <div class="row colbox">
                                             <div class="col-lg-4 col-sm-4">
-                                                <label for="erakond" class="control-label">Erakond</label>
+                                                <label for="erakond" class="control-label"><?php echo $party; ?></label>
                                             </div>
                                             <div class="col-lg-8 col-sm-8">
 
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <div class="row colbox">
                                             <div class="col-lg-4 col-sm-4">
-                                                <label for="loosung" class="control-label">Loosung</label>
+                                                <label for="loosung" class="control-label"><?php echo $slogan; ?></label>
                                             </div>
                                             <div class="col-lg-8 col-sm-8">
                                                 <input id="loosung" name="loosung" placeholder="loosung" type="text" class="form-control" value="<?php echo set_value('loosung'); ?>" />
@@ -64,8 +64,8 @@
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-                                            <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Kandideeri" />
-                                            <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-danger" value="Katkesta" />
+                                            <input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="<?php echo $start; ?>" />
+                                            <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-danger" value="<?php echo $stop; ?>" />
                                         </div>
                                     </div>
                                 </fieldset>

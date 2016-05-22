@@ -3,7 +3,7 @@
     <div class="row">
         <div class="box">
             <div class="col-lg-12 text-left">
-                <h3>Anna hääl</h3>
+                <h3><?php echo $votenow; ?></h3>
                 <?php
                 if($staatus == 0){
                     echo '<div class="col-lg-6 text-left"><p>Hääletamine pole veel alanud</p></div>';
@@ -18,7 +18,7 @@
                             '<div class="col-lg-12 text-left">
                                 <div class="col-lg-6 text-left">
                                     <div class="input-group">
-                                        <input type="text" id="data" name="haaleta" class="form-control" placeholder="Sisesta number" onkeyup="showKandidaat(this.value)" />			
+                                        <input type="text" id="data" name="haaleta" class="form-control" placeholder="'.$insertnumber.'" onkeyup="showKandidaat(this.value)" />			
                                     </div>
                                 </div>
                                 <div class="col-lg-offset-6 text-left" id="spinner"></div>
@@ -35,7 +35,7 @@
                             <?php
                         }
                     } else {
-                        echo "<p>Hääletamiseks <a href=" . site_url('sait/sisene') . ">logi sisse</a></p>";
+                        echo "<p>$logforvoting <a href=" . site_url('sait/sisene') . ">$login</a></p>";
                     }
                 }
                 ?>
