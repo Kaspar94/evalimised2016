@@ -140,9 +140,19 @@ function createErakondChart($name){
     sortedVotes.sort(function(a, b) {return b[1] - a[1];});
     for (var i = 0; i < sortedVotes.length; i++) {
             var id = sortedVotes[i][0].toString().replace(" ", "_");
-            var h = 'häält';
+ 
+            var h;
+	    if(keel == "en") {
+		h = 'votes';
+	    } else {
+		h = 'häält';
+	    }
             if(sortedVotes[i][1] === 1)
-                h = 'hääl';
+		if(keel == "est") {
+	                h = 'hääl';
+		} else {
+			h = "vote";
+		}
             $("#chart").append('<span>'+sortedVotes[i][0]+'</span><div class="progress" style="width:500px;margin-bottom:10px;margin-top:0px;">' +
                     '<div class="progress-bar" id='+id+' role="progressbar" aria-valuenow="'+sortedVotes[i][1]*100/total_votes+'" aria-valuemin="0" aria-valuemax="100" style="min-width: 0%;transition-duration: 3s;text-overflow: auto">' +
                     '<div class="text-left">'+sortedVotes[i][1]+' '+h+'</div>' +
@@ -196,9 +206,19 @@ function createLiigeChart($name){
     sortedVotes.sort(function(a, b) {return b[1] - a[1];});  
     for (var i = 0; i < sortedVotes.length; i++) {
             var id = sortedVotes[i][0].toString().replace(" ", "_");
-            var h = 'häält';
+	    
+            var h;
+	    if(keel == "en") {
+		h = 'votes';
+	    } else {
+		h = 'häält';
+	    }
             if(sortedVotes[i][1] === 1)
-                h = 'hääl';
+		if(keel == "est") {
+	                h = 'hääl';
+		} else {
+			h = "vote";
+		}
             $("#chart").append('<span>'+sortedVotes[i][0]+'</span><div class="progress" style="width:500px;margin-bottom:10px;margin-top:0px;">' +
                     '<div class="progress-bar" id='+id+' role="progressbar" aria-valuenow="'+sortedVotes[i][1]*100/total_votes+'" aria-valuemin="0" aria-valuemax="100" style="min-width: 0%;transition-duration: 3s;text-overflow: auto">' +
                     '<div class="text-left">'+sortedVotes[i][1]+' '+h+'</div>' +
