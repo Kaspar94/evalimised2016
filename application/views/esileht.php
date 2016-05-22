@@ -3,7 +3,7 @@
             <div class="box">
                 <div class="col-lg-12 text-left">
                     
-                    <h3>Esileht</h3>
+                    <h3></h3>
                     <?php
                         if($staatus == 0){
                             echo '<p>Valimised pole veel alanud</p>';

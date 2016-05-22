@@ -25,7 +25,7 @@ class Sait extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->helper('form');
         //echo current_url() == "http://valimised16.cs.ut.ee/index.php/sait;
-        $disabled = ["sisene", "login", "endpoint", "logout", "pollResponse","getVotesLive"]; // urlid, mida ei salvestata
+        $disabled = ["sisene", "login", "endpoint", "logout", "pollResponse","getVotesLive","est","eng"]; // urlid, mida ei salvestata
         if (!in_array($this->router->fetch_method(), $disabled)) {
             $this->session->set_userdata('last_page', $this->router->fetch_method()); // salvestab kylastatud lehe
         }
@@ -36,6 +36,7 @@ class Sait extends CI_Controller {
 	$this->data["results"] = $this->lang->line('results');
 	$this->data["votenow"] = $this->lang->line('votenow');
 	$this->data["startcampaign"] = $this->lang->line('startcampaign');
+	$this->data["lang"] = $this->session->userdata('language');
     }
 
     private function getHfData() {
@@ -525,12 +526,28 @@ class Sait extends CI_Controller {
 
     public function eng() {
 	$this->session->set_userdata('language', 'english');	
-	//redirect('');
+                    if ($this->session->userdata('last_page')) {
+                        $this->load->helper('url');
+                        $last = $this->session->userdata('last_page');
+                        redirect("sait/$last");
+                    } else {
+                        $this->index();
+                    }
+
+
     }
 
     public function est() {
 	$this->session->set_userdata('language', 'estonia');	
-	//redirect('');
+
+                    if ($this->session->userdata('last_page')) {
+                        $this->load->helper('url');
+                        $last = $this->session->userdata('last_page');
+                        redirect("sait/$last");
+                    } else {
+                        $this->index();
+                    }
+
     }
 
     public function endpoint() {

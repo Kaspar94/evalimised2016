@@ -36,6 +36,16 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php
+		    if($lang == "estonia") {
+			echo "<li>";
+			echo "<a href=".site_url('sait/eng').">ENG</a>";
+			echo "</li>";
+		    } else if($lang == "english") {
+			echo "<li>";
+			echo "<a href=".site_url('sait/est').">EST</a>";
+			echo "</li>";
+		    }
+			
                     if ($on_logitud == false) {
                         echo "<li ".($page_name == 'login' ? 'class="active"' : '')."><a href=".site_url('sait/sisene')."><span class=\"glyphicon glyphicon-log-in navi\" aria-hidden=\"true\"></span></a></li>";
                     } else {
