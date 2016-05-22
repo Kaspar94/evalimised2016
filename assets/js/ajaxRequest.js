@@ -34,7 +34,7 @@ function pollKandidaat() {
 			setTimeout(pollKandidaat,5000);
 		},
 		error: function(textStatus, errorThrown) {	
-			box.innerHTML = textStatus + " " + errorThrown;
+			//box.innerHTML = textStatus + " " + errorThrown;
 			setTimeout(pollKandidaat,15000);
 		}
 	});

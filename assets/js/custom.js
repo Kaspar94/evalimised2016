@@ -7,8 +7,19 @@
 //var date = 2016/07/07;
 var headers = Array();
 var rows = Array();
+var keel;
 $(document).ready(
     function () {
+    
+    var knd = document.getElementById("knd");
+    if(knd.innerHTML == "CANDIDATES") {
+	keel = "en";
+    } else if(knd.innerHTML == "KANDIDAADID") {
+	keel = "est";
+    } else {
+	alert(knd.innerHTML);
+    }
+    if(keel == "est") {
     $("#countdown").countdown($('#date').text().toString(), function (event) {
         $(this).html(event.strftime(''
             + '<span class="cd-number">%D</span> päeva '
@@ -17,6 +28,16 @@ $(document).ready(
             + '<span class="cd-number">%S</span> sekundit'
         ));
     });
+    } else if(keel == "en") {
+	$("#countdown").countdown($('#date').text().toString(), function (event) {
+        $(this).html(event.strftime(''
+            + '<span class="cd-number">%D</span> days '
+            + '<span class="cd-number">%H</span> hours '
+            + '<span class="cd-number">%M</span> minutes '
+            + '<span class="cd-number">%S</span> seconds'
+        ));
+    });
+    }
     $('#tabel').tablesorter({sortList: [[4,1], [3,1]]});
     
     $(function () {
@@ -78,6 +99,13 @@ $(document).ready(
 
 });
 function createErakondChart($name){
+    var koguriik;
+    if(keel == "est") {
+	koguriik = "kogu riik";	
+    } else if(keel == "en") {
+	koguriik = "whole country";
+    }
+
     var newHeaders = Array();
     newHeaders[0] = headers[2];
     newHeaders[1] = headers[4];
@@ -100,8 +128,12 @@ function createErakondChart($name){
     //total_votes = 70;
     var v = 30;
     if($name === "")
-        $name = "kogu riik";
-    document.getElementById("chart").innerHTML = "<p>Valitud piirkond: "+$name+"<p>Kokku piirkonnas hääli: "+total_votes+"</p>";
+        $name = koguriik;
+    if(keel == "est") {
+	document.getElementById("chart").innerHTML = "<p>Valitud piirkond: "+$name+"<p>Kokku piirkonnas hääli: "+total_votes+"</p>";
+    } else if(keel == "en") {
+	document.getElementById("chart").innerHTML = "<p>Chosen region: "+$name+"<p>Total votes in region: "+total_votes+"</p>";
+    }
     var sortedVotes = [];
     for (var vote in votes)
         sortedVotes.push([vote, votes[vote]]);
@@ -124,6 +156,12 @@ function createErakondChart($name){
 }
 
 function createLiigeChart($name){
+    var koguriik;
+    if(keel == "est") {
+	koguriik = "kogu riik";	
+    } else if(keel == "en") {
+	koguriik = "whole country";
+    }
     var newHeaders = Array();
     newHeaders[0] = headers[1];
     newHeaders[1] = headers[4];
@@ -146,8 +184,12 @@ function createLiigeChart($name){
     //total_votes = 70;
     var v = 30;
     if($name === "")
-        $name = "kogu riik";
-    document.getElementById("chart").innerHTML ="<p>Valitud erakond: "+$name+"<p>Kokku erakonnal hääli: "+total_votes+"</p>";
+        $name = koguriik;
+    if(keel == "est") {
+	    document.getElementById("chart").innerHTML ="<p>Valitud erakond: "+$name+"<p>Kokku erakonnal hääli: "+total_votes+"</p>";
+    } else if(keel == "en") {
+	    document.getElementById("chart").innerHTML ="<p>Chosen party: "+$name+"<p>Total party votes: "+total_votes+"</p>";
+    }
     var sortedVotes = [];
     for (var vote in votes)
         sortedVotes.push([vote, votes[vote]]);

@@ -19,7 +19,7 @@
                         <a href="<?php echo site_url('sait'); ?>"><span class="glyphicon glyphicon-home navi" aria-hidden="true"></span></a>
                     </li>
                     <li <?php echo ($page_name == 'kandidaadid' ? 'class="active"' : '') ?>>
-                        <a href="<?php echo site_url('sait/kandidaadid'); ?>"><?php echo $candidates; ?></a>
+                        <a id="knd" href="<?php echo site_url('sait/kandidaadid'); ?>"><?php echo $candidates; ?></a>
                     </li>
                     <li <?php echo ($page_name == 'tulemused' ? 'class="active"' : '') ?>>
                         <a href="<?php echo site_url('sait/tulemused'); ?>"><?php echo $results; ?></a>
