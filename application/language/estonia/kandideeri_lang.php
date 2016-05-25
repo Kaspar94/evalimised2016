@@ -8,5 +8,6 @@ $lang['region'] = 'Piirkond';
 $lang['slogan'] = 'Loosung';
 $lang['start'] = 'Kandideeri';
 $lang['stop'] = 'Katkesta';
+$lang['slogan_error'] = 'Loosungi väli on kohustuslik';
 
 ?>

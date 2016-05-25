@@ -8,5 +8,7 @@ $lang['region'] = 'Region';
 $lang['slogan'] = 'Slogan';
 $lang['start'] = 'Go!';
 $lang['stop'] = 'Abort';
+$lang['slogan_error'] = 'Slogan field is required';
+
 
 ?>

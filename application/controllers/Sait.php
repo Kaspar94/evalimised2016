@@ -271,6 +271,7 @@ class Sait extends CI_Controller {
 	$this->data["slogan"] = $this->lang->line('slogan');
 	$this->data["start"] = $this->lang->line('start');
 	$this->data["stop"] = $this->lang->line('stop');
+        $slogan_error = $this->lang->line('slogan_error');
 
         $this->data['page_name'] = 'kandideeri';
         $this->data['on_logitud'] = $this->isLoggedIn();
@@ -304,7 +305,8 @@ class Sait extends CI_Controller {
             }
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
-            $this->form_validation->set_rules('loosung', 'Loosung', 'required|max_length[32]');
+            $this->form_validation->set_rules('slogan', 'lang:slogan', 'required|max_length[64]');
+            $this->form_validation->set_message('slogan', $slogan_error);
             if ($this->form_validation->run() == FALSE) {
                 //fail validation
                 $this->load->view('kandideeri', $this->data);
