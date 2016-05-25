@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
+$lang['title'] = 'Front page';
 $lang['candidates'] = 'CANDIDATES';
 $lang['results'] = 'RESULTS';
 $lang['votenow'] = 'VOTE NOW';

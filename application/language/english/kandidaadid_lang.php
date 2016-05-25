@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['title'] = 'Candidates';
 $lang['candidates'] = 'CANDIDATES';
 $lang['search'] = 'Search';
 $lang['searchbar'] = 'Type name/number/party/region..';

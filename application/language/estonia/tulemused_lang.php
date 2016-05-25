@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['title'] = 'Tulemused';
 $lang['totalvotes'] = 'Kokku hääli';
 $lang['wholecountry'] = 'Kogu riigis';
 $lang['chooseregion'] = 'Vali piirkond';

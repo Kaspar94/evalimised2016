@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['title'] = 'Results';
 $lang['totalvotes'] = 'Total votes';
 $lang['wholecountry'] = 'In whole country';
 $lang['chooseregion'] = 'Choose region';

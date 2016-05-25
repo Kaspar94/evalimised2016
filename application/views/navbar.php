@@ -40,7 +40,7 @@
 			echo "<li>";
 			echo "<a href=".site_url('sait/eng').">ENG</a>";
 			echo "</li>";
-		    } else if($lang == "english") {
+		    } else {
 			echo "<li>";
 			echo "<a href=".site_url('sait/est').">EST</a>";
 			echo "</li>";

@@ -99,7 +99,9 @@ class Sait extends CI_Controller {
         }
         $this->data['enddate'] = $this->model_kand->getEndDate()[0]->EndDate;
         $this->data['staatus'] = $this->model_kand->getStaatus()[0]->Staatus;
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         $this->load->view('esileht', $this->data);
         $this->load->view('footer', $this->getHfData());
@@ -125,7 +127,9 @@ class Sait extends CI_Controller {
             $this->data['teenus'] = $this->getLoggedAcc();
             $this->data['isik'] = $this->getLoggedAccData();
         }
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         $this->load->view('kandidaadid', $this->data);
         $this->load->view('footer', $this->getHfData());
@@ -175,7 +179,9 @@ class Sait extends CI_Controller {
             $this->data['teenus'] = $this->getLoggedAcc();
             $this->data['isik'] = $this->getLoggedAccData();
         }
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         $this->load->view('tulemused');
         $this->load->view('footer', $this->getHfData());
@@ -200,7 +206,9 @@ class Sait extends CI_Controller {
             $this->data['isik'] = $this->getLoggedAccData();
             $this->data['haal'] = $this->hasVoted();
         }
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         $this->load->view('haaleta', $this->data);
         $this->load->view('footer', $this->getHfData());
@@ -240,7 +248,9 @@ class Sait extends CI_Controller {
 
         $this->data['page_name'] = 'kasutaja';
         $this->data['on_logitud'] = $this->isLoggedIn();
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         if ($this->isLoggedIn()) {
             $this->data['teenus'] = $this->getLoggedAcc();
@@ -279,7 +289,9 @@ class Sait extends CI_Controller {
         }
         $this->data['erakonnad'] = $erakonnad_n;
         $this->data['piirkonnad'] = $piirkonnad_n;
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         if ($this->isLoggedIn()) {
             $this->data['teenus'] = $this->getLoggedAcc();
@@ -342,7 +354,9 @@ class Sait extends CI_Controller {
 
         $this->data['page_name'] = 'login';
         $this->data['on_logitud'] = $this->isLoggedIn();
-        $this->load->view('header', $this->getHfData());
+        $hfData = $this->getHfData();
+        $hfData['page_title'] = $this->lang->line('title');
+        $this->load->view('header', $hfData);
         $this->load->view('navbar', $this->data);
         if ($this->isLoggedIn()) {
             $this->data['teenus'] = $this->getLoggedAcc();
