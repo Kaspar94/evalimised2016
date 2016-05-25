@@ -56,7 +56,7 @@
                                                 <label for="loosung" class="control-label"><?php echo $slogan; ?></label>
                                             </div>
                                             <div class="col-lg-8 col-sm-8">
-                                                <input id="loosung" name="loosung" placeholder="loosung" type="text" class="form-control" value="<?php echo set_value('loosung'); ?>" />
+                                                <input id="loosung" name="loosung" placeholder="<?php echo $slogan; ?>" type="text" class="form-control" value="<?php echo set_value('loosung'); ?>" />
                                                 <span class="text-danger"><?php echo form_error('loosung'); ?></span>
                                             </div>
                                         </div>
