@@ -36,13 +36,13 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php
-		    if($lang == "estonia") {
+		    if($lang == "english") {
 			echo "<li>";
-			echo "<a href=".site_url('sait/eng').">ENG</a>";
+			echo "<a href=".site_url('sait/est').">EST</a>";
 			echo "</li>";
 		    } else {
 			echo "<li>";
-			echo "<a href=".site_url('sait/est').">EST</a>";
+			echo "<a href=".site_url('sait/eng').">ENG</a>";
 			echo "</li>";
 		    }
 			
