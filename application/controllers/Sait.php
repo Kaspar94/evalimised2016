@@ -306,6 +306,7 @@ class Sait extends CI_Controller {
             $this->form_validation->set_rules('piirkond', 'Piirkond', 'callback_combo_check');
             $this->form_validation->set_rules('erakond', 'Erakond', 'callback_combo_check');
             $this->form_validation->set_rules('loosung', 'lang:slogan', 'required|max_length[64]|callback_slogan_error['.$slogan_error.']');
+            $this->form_validation->set_message('required', $slogan_error);
             if ($this->form_validation->run() == FALSE) {
                 //fail validation
                 $this->load->view('kandideeri', $this->data);
