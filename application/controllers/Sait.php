@@ -29,7 +29,10 @@ class Sait extends CI_Controller {
         if (!in_array($this->router->fetch_method(), $disabled)) {
             $this->session->set_userdata('last_page', $this->router->fetch_method()); // salvestab kylastatud lehe
         }
-        
+        if($this->session->userdata('language') === null) {
+		$this->session->set_userdata('language','estonia');
+	}
+
         $this->lang->load('navbar_lang',$this->session->userdata('language'));
 
 	$this->data["candidates"] = $this->lang->line('candidates');
